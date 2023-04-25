@@ -7,15 +7,7 @@
     android:background="@drawable/car"
     tools:context=".CarProfileActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/eoooooo"
-        android:text="RABOTI LI SUPER!"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        />
+
 
 
 </RelativeLayout>
