@@ -13,9 +13,6 @@
         android:theme="@style/Theme.MobilCar"
         tools:targetApi="31" >
         <activity
-            android:name=".PersonInfoMainPage"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
             android:exported="true" >
             <intent-filter>
@@ -27,6 +24,15 @@
         <activity
             android:name=".CarProfileActivity"
             android:exported="true" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PersonInfoMainPage"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterCarActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
