@@ -8,30 +8,35 @@
     tools:context=".LoginActivity">
 
     <TextView
+        android:id="@+id/signin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/signin"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
         android:text="Sign in"
         android:textColor="@color/white"
         android:textSize="35sp"
-        android:textStyle="bold"
-        android:layout_margin="50dp"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signin"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
-        android:hint="Username"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_margin="10dp"
-        android:padding="20dp"
         android:drawableLeft="@drawable/baseline_person_outline_40"
         android:drawablePadding="20dp"
-         />
+        android:hint="Username"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/password"
@@ -44,7 +49,7 @@
         android:textColorHint="@color/white"
         android:layout_margin="10dp"
         android:padding="20dp"
-        android:drawableLeft="@drawable/baseline_person_outline_40"
+        android:drawableLeft="@drawable/baseline_password_40"
         android:drawablePadding="20dp"
         />
 

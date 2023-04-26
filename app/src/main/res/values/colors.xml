@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorLayerBack">#8a56ab</color>
+    <color name="colorBack">#241333</color>
+    <color name="colorTitle">#362742</color>
+    <color name="colorSubTitle">#c5c9cf</color>
+    <color name="colorHorizontalDivider">#891a56ab</color>
 </resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24"
+        android:id="@+id/home"/>
+    <item
+        android:title="MyCar"
+        android:icon="@drawable/baseline_directions_car_24"
+        android:id="@+id/myCar"/>
+    <item
+        android:title="Maps"
+        android:icon="@drawable/baseline_map_24"
+        android:id="@+id/maps"/>
+    <item
+        android:title="Settings"
+        android:icon="@drawable/baseline_settings_24"
+        android:id="@+id/settings"/>
+
+</menu>
