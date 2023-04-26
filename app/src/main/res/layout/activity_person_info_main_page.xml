@@ -163,12 +163,6 @@
 
 
 
-
-
-
-
-
-
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="0dp"

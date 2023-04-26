@@ -20,7 +20,7 @@ public class PersonInfoMainPage extends AppCompatActivity {
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+     /*   binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()) {
 
@@ -39,7 +39,7 @@ public class PersonInfoMainPage extends AppCompatActivity {
             }
 
             return true;
-        });
+        }); */
     }
 
     private void replaceFragment(Fragment fragment) {
