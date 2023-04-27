@@ -56,7 +56,7 @@
 
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
@@ -77,7 +77,7 @@
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
+        android:layout_below="@id/passwordReg"
         android:layout_centerHorizontal="false"
         android:layout_marginStart="80dp"
         android:layout_marginTop="30dp"
@@ -91,7 +91,7 @@
         android:id="@+id/registerbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
+        android:layout_below="@id/passwordReg"
         android:layout_centerHorizontal="false"
         android:layout_marginStart="220dp"
         android:layout_marginTop="30dp"

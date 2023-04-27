@@ -9,7 +9,7 @@ public class OwnerDatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "uSERmANAGER";
 
-    private static final String TABLE_CONTACTS = "ОWNERS";
+    private static final String TABLE_CONTACTS = "OWNERS";
     private static final String KEY_ID = "id";
 //    private static final String KEY_NAME = "UserName";
 //    private static final String KEY_PH_NO = "Password";

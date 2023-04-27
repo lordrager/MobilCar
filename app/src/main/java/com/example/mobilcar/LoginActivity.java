@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         TextView username = (TextView) findViewById(R.id.username);
-        TextView password = (TextView) findViewById(R.id.password);
+        TextView password = (TextView) findViewById(R.id.passwordReg);
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
@@ -75,13 +75,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(username.getText().toString().equals("viki") && password.getText().toString().equals("1234")) {
                     //correct
-                    loginbtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(LoginActivity.this,CarProfileActivity.class);
+                            Intent intent = new Intent(LoginActivity.this,PersonInfoMainPage.class);
                             startActivity(intent);
-                        }
-                    });
+
                 } else {
                     //wrong
                     Toast.makeText(LoginActivity.this, "LOGIN FAILED", Toast.LENGTH_SHORT).show();
