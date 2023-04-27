@@ -8,13 +8,19 @@ public abstract class Human {
     private String last_name;
     private String egn;
     private Location location;
+    private String email;
+    private String username;
+    private double password;
 
-    public Human(int id, String first_name, String last_name, String egn,  Location location) {
+    public Human(int id, String first_name, String last_name, String egn, String email, String username, double password) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.egn = egn;
-        this.location = location;
+//        this.location = location;
+        this.email = email;
+        this.username = username;
+        this.password = password;
     }
 
     public String getFirst_name() {
@@ -55,5 +61,29 @@ public abstract class Human {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public double getPassword() {
+        return password;
+    }
+
+    public void setPassword(double password) {
+        this.password = password;
     }
 }
