@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1"
-    tools:context=".LoginActivity">
+    tools:context=".LOGIN_KODA_KOITO_RABOTI">
 
     <TextView
         android:id="@+id/forgotpass"
@@ -65,8 +65,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="#30ffffff"
-        android:drawableLeft="@drawable/baseline_password_40"
-        android:drawableRight="@drawable/baseline_password_40"
+        android:drawableLeft="@drawable/baseline_lock_24"
         android:drawablePadding="20dp"
         android:hint="Password"
         android:padding="20dp"

@@ -1,8 +1,9 @@
-package Models.Classes;
+package com.example.mobilcar.Classes;
+
+import com.example.mobilcar.Abstact.CarDocuments;
 
 import java.util.Date;
 
-import Models.Abstact.CarDocuments;
 
 public class TechReview extends CarDocuments {
 

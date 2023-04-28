@@ -1,4 +1,4 @@
-package Models.Classes;
+package com.example.mobilcar.Classes;
 
 public class Location {
     private int id;

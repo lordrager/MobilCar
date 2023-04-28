@@ -1,23 +1,21 @@
-package Models.Abstact;
+package com.example.mobilcar.Abstact;
 
-import Models.Classes.Location;
+import com.example.mobilcar.Classes.Location;
 
 public abstract class Human {
     private int id;
     private String first_name;
     private String last_name;
     private String egn;
-    private Location location;
     private String email;
     private String username;
-    private double password;
+    private String password;
 
-    public Human(int id, String first_name, String last_name, String egn, String email, String username, double password) {
+    public Human(int id, String first_name, String last_name, String egn, String email, String username, String password) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.egn = egn;
-//        this.location = location;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -55,14 +53,6 @@ public abstract class Human {
         this.egn = egn;
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -79,11 +69,11 @@ public abstract class Human {
         this.username = username;
     }
 
-    public double getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(double password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 }

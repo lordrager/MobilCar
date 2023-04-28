@@ -1,14 +1,15 @@
-package Models.Classes;
+package com.example.mobilcar.Classes;
 
-import Models.Abstact.Human;
+import com.example.mobilcar.Abstact.Human;
+
 
 public class Owner extends Human {
     private Car car;
     private double budget;
-    public Owner(int id, String first_name, String last_name, String username, String egn, String email, double password) {
+
+    public Owner(int id, String first_name, String last_name, String username, String egn, String email, String password) {
         super(id, first_name, last_name, egn, email, username, password);
-        this.budget = budget;
-        this.car = car;
+
     }
 
     public Car getCar() {

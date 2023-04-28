@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 
-public class LoginActivity extends AppCompatActivity {
+public class LOGIN_KODA_KOITO_RABOTI extends AppCompatActivity {
 
 
     @Override
@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(username.getText().toString().equals("viki") && password.getText().toString().equals("1234")) {
-                    Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
+                    Intent intent = new Intent(LOGIN_KODA_KOITO_RABOTI.this, PersonInfoMainPage.class);
                     startActivity(intent);
                 }
             }
@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(LOGIN_KODA_KOITO_RABOTI.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });

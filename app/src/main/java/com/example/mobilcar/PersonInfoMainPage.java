@@ -8,11 +8,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mobilcar.Fragments.HomeFragment;
+import com.example.mobilcar.Fragments.MapsFragment;
+import com.example.mobilcar.Fragments.MyCarFragment;
+import com.example.mobilcar.Fragments.SettingsFragment;
 import com.example.mobilcar.databinding.ActivityPersonInfoMainPageBinding;
 
 public class PersonInfoMainPage extends AppCompatActivity {
 
-     ActivityPersonInfoMainPageBinding binding;
+    ActivityPersonInfoMainPageBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,26 +24,22 @@ public class PersonInfoMainPage extends AppCompatActivity {
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 
-     /*   binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
-            switch (item.getItemId()) {
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
-                case R.id.home:
-                    replaceFragment(new HomeFragment());
-                    break;
-                case R.id.myCar:
-                    replaceFragment(new MyCarFragment());
-                    break;
-                case R.id.maps:
-                    replaceFragment(new MapsFragment());
-                    break;
-                case R.id.settings:
-                    replaceFragment(new SettingsFragment());
-                    break;
+            int id = item.getItemId();
+            if (id == R.id.home) {
+                replaceFragment(new HomeFragment());
+            } else if (id == R.id.myCar) {
+                replaceFragment(new MyCarFragment());
+            } else if (id == R.id.maps) {
+                replaceFragment(new MapsFragment());
+            } else if (id == R.id.settings) {
+                replaceFragment(new SettingsFragment());
             }
 
             return true;
-        }); */
+        });
     }
 
     private void replaceFragment(Fragment fragment) {

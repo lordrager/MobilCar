@@ -1,8 +1,8 @@
-package Models.Abstact;
+package com.example.mobilcar.Abstact;
 
 import java.util.Date;
 
-import Models.Classes.Car;
+import com.example.mobilcar.Classes.Car;
 
 public abstract class CarDocuments {
     private int id;

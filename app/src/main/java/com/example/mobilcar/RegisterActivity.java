@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
                     nextbtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, LOGIN_KODA_KOITO_RABOTI.class);
                             startActivity(intent);
                             Toast.makeText(RegisterActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
                         }
@@ -88,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                     nextbtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, LOGIN_KODA_KOITO_RABOTI.class);
                             startActivity(intent);
                             Toast.makeText(RegisterActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
                         }
@@ -126,7 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
                     nextbtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, LOGIN_KODA_KOITO_RABOTI.class);
                             startActivity(intent);
                             Toast.makeText(RegisterActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
                         }
@@ -164,7 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
                     nextbtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, LOGIN_KODA_KOITO_RABOTI.class);
                             startActivity(intent);
                             Toast.makeText(RegisterActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
                         }

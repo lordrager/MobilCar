@@ -1,4 +1,4 @@
-package Database;
+package com.example.mobilcar;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import Models.Classes.Owner;
+import com.example.mobilcar.Classes.Owner;
+
 
 public class OwnerDatabaseHelper extends SQLiteOpenHelper {
 
@@ -24,16 +25,15 @@ public class OwnerDatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_Budget = "0";
 
 
-
     public OwnerDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
 
     @Override
-    public void onCreate(SQLiteDatabase db)  {
+    public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS +
-                "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_F_NAME + " TEXT," + KEY_L_NAME +" TEXT,"+
+                "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_F_NAME + " TEXT," + KEY_L_NAME + " TEXT," +
                 KEY_U_NAME + " TEXT," + KEY_EGN + " TEXT," + KEY_Email + " TEXT," + KEY_Pass + " TEXT" + KEY_Budget + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
@@ -44,29 +44,33 @@ public class OwnerDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void onDeleteTable(){
+    public void onDeleteTable() {
         SQLiteDatabase db = this.getWritableDatabase();
         //db.execSQL("DROP TABLE IF EXISTS " + DATABASE_NAME);
-        db.delete(TABLE_CONTACTS,null,null);
-         db.close();
+        db.delete(TABLE_CONTACTS, null, null);
+        db.close();
     }
+
     void addOwner(Owner contact) {
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
+
         values.put(KEY_F_NAME, contact.getFirst_name());
         values.put(KEY_L_NAME, contact.getLast_name());
         values.put(KEY_U_NAME, contact.getUsername());
-        values.put(KEY_EGN, contact.getUsername());
         values.put(KEY_Email, contact.getEmail());
+        values.put(KEY_EGN, contact.getUsername());
         values.put(KEY_Pass, contact.getPassword());
         values.put(KEY_Budget, contact.getBudget());
 
         db.insert(TABLE_CONTACTS, null, values);
-//        db.close();
+        db.close();
     }
 
-    Owner getOwner(int id) {
+   public Owner getOwner(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
+
 //        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
 //                        KEY_F_NAME, KEY_L_NAME, KEY_U_NAME, KEY_Email, KEY_Pass, String.valueOf(KEY_Budget)}, KEY_ID + "=?",
 //                new String[] { String.valueOf(id) }, null, null, null, null);
@@ -76,28 +80,33 @@ public class OwnerDatabaseHelper extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 //        Owner owner = new Owner(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), Integer.parseInt(cursor.getString(4)), cursor.getString(5));
-        Owner owner = new Owner(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getDouble(6));
+        Owner owner = new Owner(Integer.parseInt("0"),
+                cursor.getString(1), cursor.getString(2), cursor.getString(3),
+                cursor.getString(4), cursor.getString(5), cursor.getString(6));
         return owner;
     }
 
+
     public int updateOwner(Owner contact) {
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
+
         values.put(KEY_F_NAME, contact.getFirst_name());
         values.put(KEY_L_NAME, contact.getLast_name());
         values.put(KEY_U_NAME, contact.getUsername());
-        values.put(KEY_EGN, contact.getUsername());
         values.put(KEY_Email, contact.getEmail());
+        values.put(KEY_EGN, contact.getUsername());
         values.put(KEY_Pass, contact.getPassword());
         values.put(KEY_Budget, contact.getBudget());
         return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",
-                new String[] { String.valueOf(contact.getId()) });
+                new String[]{String.valueOf(contact.getId())});
     }
 
     public void deleteOwner(Owner contact) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CONTACTS, KEY_ID + " = ?",
-                new String[] { String.valueOf(contact.getId()) });
+                new String[]{String.valueOf(contact.getId())});
         db.close();
     }
 
