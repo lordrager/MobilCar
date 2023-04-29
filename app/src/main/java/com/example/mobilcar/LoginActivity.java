@@ -20,14 +20,14 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-        TextView username = (TextView) findViewById(R.id.username);
-        TextView password = (TextView) findViewById(R.id.passwordReg);
+        TextView usernameLog = (TextView) findViewById(R.id.usernameLog);
+        TextView emailLog = (TextView) findViewById(R.id.emailLog);
+        TextView passwordLog = (TextView) findViewById(R.id.passwordLog);
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
 
-
-        username.addTextChangedListener(new TextWatcher() {
+        usernameLog.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (username.length() >= 3 && password.length() >= 3) {
+                if (emailLog.length() > 0 && usernameLog.length() >= 3 && passwordLog.length() >= 3) {
                     loginbtn.setEnabled(true);
                 } else {
                     loginbtn.setEnabled(false);
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        password.addTextChangedListener(new TextWatcher() {
+        passwordLog.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -55,7 +55,27 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (username.length() >= 3 && password.length() >= 3) {
+                if (emailLog.length() > 0 && usernameLog.length() >= 3 && passwordLog.length() >= 3) {
+                    loginbtn.setEnabled(true);
+                } else {
+                    loginbtn.setEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        emailLog.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (emailLog.length() > 0 && usernameLog.length() >= 3 && passwordLog.length() >= 3) {
                     loginbtn.setEnabled(true);
                 } else {
                     loginbtn.setEnabled(false);
@@ -73,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().equals("viki") && password.getText().toString().equals("1234")) {
+                if (usernameLog.getText().toString().equals("viki") && passwordLog.getText().toString().equals("1234")) {
                     Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
                     startActivity(intent);
                 }

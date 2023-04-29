@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/background1"
     tools:context=".RegisterActivity">
+
     <TextView
         android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:gravity="center"
@@ -19,84 +20,112 @@
         android:textColor="@color/white"
         android:textSize="35sp"
         android:textStyle="bold" />
-<!--    ime familiq egn pass-->
 
     <EditText
-        android:id="@+id/usernameReg"
+        android:id="@+id/namePerson"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/register"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/baseline_person_outline_40"
+        android:drawablePadding="20dp"
+        android:hint="First Name"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/usernameReg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/namePerson"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/baseline_person_outline_40"
         android:drawablePadding="20dp"
         android:hint="Username"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/usernameReg"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/baseline_mail_24"
         android:drawablePadding="20dp"
         android:hint="Email"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
-
-    <EditText
-        android:id="@+id/egn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/email"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:background="#30ffffff"
-        android:drawableLeft="@drawable/baseline_numbers_24"
-        android:drawablePadding="20dp"
-        android:hint="EGN"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
     <EditText
         android:id="@+id/passwordReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/egn"
+        android:layout_below="@id/emailReg"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/baseline_lock_24"
+        android:drawablePadding="20dp"
+        android:hint="Password"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/confirmPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordReg"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/baseline_password_40"
         android:drawablePadding="20dp"
-        android:hint="Password"
+        android:hint="Confirm Password"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nextbtn"
         android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/passwordReg"
+        android:layout_height="65dp"
+        android:layout_below="@id/confirmPass"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="200dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:enabled="false"
         android:text="NEXT" />

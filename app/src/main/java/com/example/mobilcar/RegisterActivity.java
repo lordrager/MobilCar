@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 
+import org.w3c.dom.Text;
+
 public class RegisterActivity extends AppCompatActivity {
 
     @Override
@@ -19,13 +21,55 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
 
+        TextView namePerson = (TextView) findViewById(R.id.namePerson);
         TextView usernameReg = (TextView) findViewById(R.id.usernameReg);
-        TextView email = (TextView) findViewById(R.id.email);
-        TextView egn = (TextView) findViewById(R.id.egn);
+        TextView emailReg = (TextView) findViewById(R.id.emailReg);
         TextView passwordReg = (TextView) findViewById(R.id.passwordReg);
+        TextView confirmPass = (TextView) findViewById(R.id.confirmPass);
 
         MaterialButton nextbtn = (MaterialButton) findViewById(R.id.nextbtn);
 
+        namePerson.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (namePerson.length() == 0 || usernameReg.length() == 0 || (emailReg.length() == 0 && !emailReg.getText().toString().contains("@"))
+                        || passwordReg.length() == 0 || confirmPass.length() == 0) {
+                    nextbtn.setEnabled(true);
+                    if (!passwordReg.getText().toString().equals(confirmPass.getText().toString())) {
+
+                        nextbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(RegisterActivity.this, "Please enter VALID information", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+                } else {
+                    nextbtn.setEnabled(true);
+
+                    nextbtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(RegisterActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         usernameReg.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -34,16 +78,19 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (usernameReg.length() == 0 || (email.length() == 0 || !email.getText().toString().contains("@")) || egn.length() != 10 || passwordReg.length() == 0) {
+                if (namePerson.length() == 0 || usernameReg.length() == 0 || (emailReg.length() == 0 && !emailReg.getText().toString().contains("@"))
+                        || passwordReg.length() == 0 || confirmPass.length() == 0) {
                     nextbtn.setEnabled(true);
+                    if (!passwordReg.getText().toString().equals(confirmPass.getText().toString())) {
 
-                    nextbtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(RegisterActivity.this, "Please enter VALID information", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                        nextbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(RegisterActivity.this, "Please enter VALID information", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
+                    }
                 } else {
                     nextbtn.setEnabled(true);
 
@@ -64,7 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
-        email.addTextChangedListener(new TextWatcher() {
+        emailReg.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -72,54 +119,19 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (usernameReg.length() == 0 || (email.length() == 0 || !email.getText().toString().contains("@")) || egn.length() != 10 || passwordReg.length() == 0) {
+                if (namePerson.length() == 0 || usernameReg.length() == 0 || (emailReg.length() == 0 && !emailReg.getText().toString().contains("@"))
+                        || passwordReg.length() == 0 || confirmPass.length() == 0) {
                     nextbtn.setEnabled(true);
+                    if (!passwordReg.getText().toString().equals(confirmPass.getText().toString())) {
 
-                    nextbtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(RegisterActivity.this, "Please enter VALID information", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                        nextbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(RegisterActivity.this, "Please enter VALID information", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
-                } else {
-                    nextbtn.setEnabled(true);
-
-                    nextbtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(RegisterActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        egn.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (usernameReg.length() == 0 || (email.length() == 0 || !email.getText().toString().contains("@")) || egn.length() != 10 || passwordReg.length() == 0) {
-                    nextbtn.setEnabled(true);
-
-                    nextbtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(RegisterActivity.this, "Please enter VALID information", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
+                    }
                 } else {
                     nextbtn.setEnabled(true);
 
@@ -148,16 +160,60 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (usernameReg.length() == 0 || (email.length() == 0 || !email.getText().toString().contains("@")) || egn.length() != 10 || passwordReg.length() == 0) {
+                if (namePerson.length() == 0 || usernameReg.length() == 0 || (emailReg.length() == 0 && !emailReg.getText().toString().contains("@"))
+                        || passwordReg.length() == 0 || confirmPass.length() == 0) {
+                    nextbtn.setEnabled(true);
+                    if (!passwordReg.getText().toString().equals(confirmPass.getText().toString())) {
+
+                        nextbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(RegisterActivity.this, "Please enter VALID information", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+                } else {
                     nextbtn.setEnabled(true);
 
                     nextbtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(RegisterActivity.this, "Please enter VALID information", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(RegisterActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
                         }
                     });
 
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        confirmPass.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (namePerson.length() == 0 || usernameReg.length() == 0 || (emailReg.length() == 0 && !emailReg.getText().toString().contains("@"))
+                        || passwordReg.length() == 0 || confirmPass.length() == 0) {
+                    nextbtn.setEnabled(true);
+                    if (!passwordReg.getText().toString().equals(confirmPass.getText().toString())) {
+
+                        nextbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(RegisterActivity.this, "Please enter VALID information", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
                 } else {
                     nextbtn.setEnabled(true);
 
