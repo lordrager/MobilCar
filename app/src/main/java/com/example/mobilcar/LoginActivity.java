@@ -20,12 +20,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        try {
-            FireBaseService fireBaseService = new FireBaseService();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
         setContentView(R.layout.activity_login);
 
         TextView username = (TextView) findViewById(R.id.username);
