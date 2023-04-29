@@ -1,8 +1,6 @@
-package com.example.mobilcar.Abstact;
+package com.example.mobilcar.Models.Abstact;
 
 import java.util.Date;
-
-import com.example.mobilcar.Classes.Car;
 
 public abstract class CarDocuments {
     private int id;
@@ -10,13 +8,12 @@ public abstract class CarDocuments {
     private Date start_date;
     private Date end_date;
     private double price;
-    private Car car;
-    public CarDocuments(int id, String name, Date start_date, Date end_date, Car car) {
+    public CarDocuments(int id, String name, Date start_date, Date end_date, double price) {
         this.id= id;
         this.name = name;
         this.start_date = start_date;
         this.end_date = end_date;
-        this.car = car;
+        this.price = price;
     }
     public Date getStart_date() {
         return start_date;

@@ -1,16 +1,18 @@
 package com.example.mobilcar;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+//import com.example.mobilcar.Database.OwnerDatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
 
     AlertDialog.Builder alertDialogBuilder;
     AlertDialog alertDialog;
 
-    final OwnerDatabaseHelper db = new OwnerDatabaseHelper(this);
+//    final OwnerDatabaseHelper db = new OwnerDatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
