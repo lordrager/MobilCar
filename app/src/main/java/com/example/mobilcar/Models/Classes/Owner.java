@@ -6,13 +6,16 @@ import com.example.mobilcar.Models.Abstact.Human;
 public class Owner extends Human {
     private Car car;
     private double budget;
-    private Location location;
 
-    public Owner(int id, String name, String username, String email, String password, double budget, Car car, Location location) {
+    public Owner(int id, String name, String username, String email, String password, double budget, Car car ) {
         super(id,name, email, username, password);
         this.budget = budget;
         this.car = car;
-        this.location = location;
+    }
+
+    public Owner(int id, String name, String username, String email, String password, double budget) {
+        super(id,name, email, username, password);
+        this.budget = budget;
     }
 
     public Car getCar() {
@@ -30,4 +33,5 @@ public class Owner extends Human {
     public void setBudget(double budget) {
         this.budget = budget;
     }
+
 }

@@ -9,10 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mobilcar.Database.FirebaseDatabase.FireBaseService;
 import com.google.android.material.button.MaterialButton;
-
-import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,6 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
 
         TextView username = (TextView) findViewById(R.id.username);

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1"
-    tools:context=".LOGIN_KODA_KOITO_RABOTI">
+    tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/forgotpass"
