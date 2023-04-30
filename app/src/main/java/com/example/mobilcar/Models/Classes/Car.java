@@ -1,7 +1,7 @@
 package com.example.mobilcar.Models.Classes;
 
 public class Car {
-    private int id;
+    private String id;
     private String brand;
     private String model;
     private short year_made;
@@ -10,7 +10,7 @@ public class Car {
     private TechReview techReview;
     private LiabilityInsurance liabilityInsurance;
 
-    public Car(int id, String brand, String model, short year_made, double gas_per_km, int horse_power, TechReview techReview, LiabilityInsurance liabilityInsurance) {
+    public Car(String id, String brand, String model, short year_made, double gas_per_km, int horse_power, TechReview techReview, LiabilityInsurance liabilityInsurance) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -21,11 +21,19 @@ public class Car {
         this.liabilityInsurance = liabilityInsurance;
     }
 
-    public int getId() {
+    public Car(String id, String brand, String model, double gas_per_km, int horse_power) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.gas_per_km = gas_per_km;
+        this.horse_power = horse_power;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

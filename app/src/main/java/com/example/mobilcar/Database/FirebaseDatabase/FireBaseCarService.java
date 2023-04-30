@@ -16,7 +16,6 @@ import java.util.Map;
 
 public class FireBaseCarService {
     public void addCar(Car car) {
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
         instance.put("Brand", car.getBrand());

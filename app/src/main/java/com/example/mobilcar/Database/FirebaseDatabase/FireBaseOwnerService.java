@@ -25,7 +25,6 @@ public class FireBaseOwnerService {
         instance.put("Username", owner.getUsername());
         instance.put("Email", owner.getUsername());
         instance.put("Password", owner.getPassword());
-        instance.put("Budget", owner.getBudget());
         instance.put("Car", owner.getCar());
         db.collection("owners").document(owner.getEmail())
                 .set(owner)
@@ -62,7 +61,6 @@ public class FireBaseOwnerService {
         instance.put("Username", owner.getUsername());
         instance.put("Email", owner.getUsername());
         instance.put("Password", owner.getPassword());
-        instance.put("Budget", owner.getBudget());
         instance.put("Car", owner.getCar());
 //        instance.put("Location", owner.getLocation());
 

@@ -1,18 +1,26 @@
 package com.example.mobilcar.Models.Abstact;
 
 public abstract class Human {
-    private int id;
+    private String id;
     private String name;
     private String email;
     private String username;
     private String password;
 
-    public Human(int id, String name, String email, String username, String password) {
+    public Human(String id, String name, String email, String username, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
+    }
+
+    public Human() {
+        this.id = null;
+        this.name = null;
+        this.email = null;
+        this.username = null;
+        this.password = null;
     }
 
     public String getName() {
@@ -23,11 +31,11 @@ public abstract class Human {
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         id = id;
     }
 

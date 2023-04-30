@@ -60,7 +60,6 @@ public class OwnerDatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_U_NAME, contact.getUsername());
         values.put(KEY_Email, contact.getEmail());
         values.put(KEY_Pass, contact.getPassword());
-        values.put(KEY_Budget, contact.getBudget());
 
         db.insert(TABLE_CONTACTS, null, values);
         db.close();
@@ -78,9 +77,9 @@ public class OwnerDatabaseHelper extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 //        Owner owner = new Owner(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), Integer.parseInt(cursor.getString(4)), cursor.getString(5));
-        Owner owner = new Owner(Integer.parseInt(cursor.getString(0)),
+        Owner owner = new Owner(cursor.getString(0),
                 cursor.getString(1), cursor.getString(2), cursor.getString(3),
-                cursor.getString(4), Double.parseDouble(cursor.getString(5)));
+                cursor.getString(4));
         return owner;
     }
 
@@ -94,7 +93,6 @@ public class OwnerDatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_U_NAME, contact.getUsername());
         values.put(KEY_Email, contact.getEmail());
         values.put(KEY_Pass, contact.getPassword());
-        values.put(KEY_Budget, contact.getBudget());
         return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",
                 new String[]{String.valueOf(contact.getId())});
     }
