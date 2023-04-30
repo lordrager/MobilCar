@@ -26,19 +26,21 @@
                 android:layout_height="300px"
                 android:src="@drawable/carinfo"/>
             <TextView
+                android:id="@+id/nameLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:text="Viktor Hazan"
+                android:text="@string/nameLogged"
                 android:textColor="@color/colorTitle"
                 />
             <TextView
+                android:id="@+id/something"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:textStyle="normal"
-                android:text="Sofia, BG"
+                android:text="@string/something"
                 android:textColor="@color/colorSubTitle"
                 android:layout_marginBottom="50px"
                 android:layout_marginTop="5px"
@@ -59,12 +61,13 @@
             android:layout_marginLeft="120px">
 
             <TextView
+                android:id="@+id/emailLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:text="Email:"/>
+                android:text="@string/emailLog"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,12 +91,13 @@
 
 
             <TextView
+                android:id="@+id/phoneLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:text="Phone:"/>
+                android:text="@string/phoneLogged"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,12 +120,13 @@
             android:layout_marginLeft="120px">
 
             <TextView
+                android:id="@+id/locationLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:text="Location:"/>
+                android:text="@string/locationLogged"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,12 +149,13 @@
             android:layout_marginLeft="120px">
 
             <TextView
+                android:id="@+id/birthDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:text="Birth Date:"/>
+                android:text="@string/birthDate"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

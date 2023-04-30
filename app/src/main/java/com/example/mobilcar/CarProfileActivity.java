@@ -23,7 +23,7 @@ public class CarProfileActivity extends AppCompatActivity {
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(1);
         menuItem.setChecked(true);
-        Button floatingActionButton = findViewById(R.id.button);
+        Button floatingActionButton = findViewById(R.id.addCarsbtn);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

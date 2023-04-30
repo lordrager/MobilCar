@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="70dp"
-            android:text="Welcome to your car collection:"
+            android:text="@string/carDiary"
             android:textColor="@android:color/black"
             android:textSize="25sp" />
     </LinearLayout>
@@ -47,13 +47,13 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addCarsbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/bottomNavigationView"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="25dp"
         android:layout_marginRight="20dp"
-        android:text="Add Cars" />
+        android:text="@string/addCarsbtn" />
 
 </RelativeLayout>

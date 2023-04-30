@@ -21,20 +21,22 @@
 
 
             <TextView
+                android:id="@+id/addYourCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="ADD YOUR CAR"
+                android:text="@string/addYourCar"
                 android:textColor="@color/colorTitle"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/collectionOfCars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5px"
                 android:layout_marginBottom="50px"
-                android:text="Collection of cars"
+                android:text="@string/collectionOfCars"
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
                 android:textStyle="normal" />
@@ -53,9 +55,10 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/brand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brand:"
+                android:text="@string/brand"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -68,7 +71,7 @@
                 android:height="60dp"
                 android:background="#30ffffff"
                 android:padding="20dp"
-                android:hint="Type model"
+                android:hint="@string/brandCar"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
@@ -91,9 +94,10 @@
 
 
             <TextView
+                android:id="@+id/model"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Model:"
+                android:text="@string/model"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -107,7 +111,7 @@
                 android:background="#30ffffff"
                 android:padding="20dp"
                 android:textColor="@color/white"
-                android:hint="Type brand"
+                android:hint="@string/modelCar"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
                 android:textStyle="normal" /> />
@@ -128,9 +132,10 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/gasExpense"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gas expense:"
+                android:text="@string/gasExpense"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -143,7 +148,7 @@
             </FrameLayout>
 
             <EditText
-                android:id="@+id/gasExpense"
+                android:id="@+id/gasExpenseCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="20dp"
@@ -151,7 +156,7 @@
                 android:background="#30ffffff"
                 android:padding="20dp"
                 android:textColor="@color/white"
-                android:hint="Type average gas exp"
+                android:hint="@string/gasExpenseCar"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
                 android:textStyle="normal" /> />
@@ -172,22 +177,23 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/horsePower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Horse Power:"
+                android:text="@string/horsePower"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/horsePower"
+                android:id="@+id/horsePowerCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
                 android:padding="20dp"
-                android:hint="Type horse power"
+                android:hint="@string/horsePowerCar"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
@@ -200,7 +206,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="60dp"
             android:layout_marginLeft="300dp"
-            android:text="Add More" />
+            android:text="@string/addCarsbtn" />
 
         <Button
             android:id="@+id/registerbtn"
@@ -208,7 +214,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="-60dp"
             android:layout_marginLeft="10dp"
-            android:text="Register" />
+            android:text="@string/registerbtn" />
 
     </LinearLayout>
 

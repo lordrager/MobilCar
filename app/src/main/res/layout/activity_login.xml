@@ -18,7 +18,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:clickable="true"
-        android:text="Forgot Password?"
+        android:text="@string/forgotpass"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
@@ -49,10 +49,10 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/baseline_person_outline_24"
         android:drawablePadding="20dp"
-        android:hint="Username"
+        android:hint="@string/usernameLog"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -69,10 +69,10 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/baseline_mail_24"
         android:drawablePadding="20dp"
-        android:hint="Email"
+        android:hint="@string/emailLog"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -89,10 +89,10 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/baseline_lock_24"
         android:drawablePadding="20dp"
-        android:hint="Password"
+        android:hint="@string/passwordLog"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -106,9 +106,9 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@android:color/holo_green_dark"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:enabled="false"
-        android:text="LOGIN" />
+        android:text="@string/loginbtn" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registerbtn"
@@ -120,9 +120,9 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@android:color/holo_green_dark"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:enabled="true"
-        android:text="REGISTER" />
+        android:text="@string/registerbtn" />
 
 
 </RelativeLayout>

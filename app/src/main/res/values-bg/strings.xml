@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_home">Вкъщи</string>
-    <string name="signin">вписване</string>
-    <string name="usernameLog">име</string>
-    <string name="emailLog">имейл</string>
-    <string name="passwordLog">парола</string>
-    <string name="loginbtn">Логин</string>
+    <string name="signin">Влизане</string>
+    <string name="usernameLog">Име</string>
+    <string name="emailLog">Имейл</string>
+    <string name="passwordLog">Парола</string>
+    <string name="loginbtn">ЛОГИН</string>
+    <string name="registerbtn">РЕГИСТРАЦИЯ</string>
+    <string name="forgotpass">Забравена парола?</string>
+
+    <string name="namePerson">Лично име</string>
+    <string name="confirmPass">Потвърди парола</string>
+    <string name="nextbtn">ПРОДЪЛЖИ</string>
+
+    <string name="carDiary">Вашите коли:</string>
+    <string name="addCarsbtn">Добави кола</string>
+
+    <string name="nameLogged">Виктор Хазан</string>
+    <string name="something">София, България</string>
+    <string name="phoneLogged">Телефон</string>
+    <string name="locationLogged">Локация</string>
+    <string name="birthDate">Дата на раждане</string>
+
+    <string name="addYourCar">ДОБАВИ СВОЯТА КОЛА</string>
+    <string name="collectionOfCars">Всички коли</string>
+    <string name="brand">Марка</string>
+    <string name="brandCar">Напиши марка</string>
+    <string name="model">Модел</string>
+    <string name="modelCar">Напиши модел</string>
+    <string name="gasExpense">Разход на гориво</string>
+    <string name="gasExpenseCar">Напиши разход на гориво</string>
+    <string name="horsePower">Конски сили</string>
+    <string name="horsePowerCar">Напиши конски сили</string>
 </resources>
