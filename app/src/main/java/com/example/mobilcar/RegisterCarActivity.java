@@ -1,17 +1,17 @@
 package com.example.mobilcar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseCarService;
-import com.example.mobilcar.Database.FirebaseDatabase.FireBaseOwnerService;
 import com.example.mobilcar.Models.Classes.Car;
-import com.example.mobilcar.Models.Classes.Owner;
 import com.google.android.material.button.MaterialButton;
 
 public class RegisterCarActivity extends AppCompatActivity {
@@ -25,6 +25,8 @@ public class RegisterCarActivity extends AppCompatActivity {
         TextView gas_expenseLog = (TextView) findViewById(R.id.gasExpense);
         TextView horseLog = (TextView) findViewById(R.id.horsePower);
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
+        Bundle extras = getIntent().getExtras();
+        String id = extras.getString("id");
 
         markLog.addTextChangedListener(new TextWatcher() {
             @Override
@@ -128,19 +130,14 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String model = modelLog.getText().toString().trim();
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
-                Car car = new Car(mark.concat(model).concat(horse), mark, model, Integer.parseInt(gas), Integer.parseInt(horse));
-                Bundle extras = getIntent().getExtras();
-                if (extras != null) {
-                    String name = extras.getString("name");
-                    String username = extras.getString("username");
-                    String email = extras.getString("email");
-                    String password = extras.getString("password");
-                    Owner owner = new Owner(username.concat(email),name, username, email, password,car);
-                    FireBaseOwnerService ownerService = new FireBaseOwnerService();
-                    FireBaseCarService carService = new FireBaseCarService();
-                    ownerService.addOwner(owner);
-                    carService.addCar(car);
-                }
+                Car car = new Car(id, mark, model, gas, horse);
+                FireBaseCarService carService = new FireBaseCarService();
+                carService.addCar(car);
+                Intent intent = new Intent(RegisterCarActivity.this, PersonInfoMainPage.class);
+                intent.putExtra("OwnerId", id);
+                intent.putExtra("CarModel", model);
+                startActivity(intent);
+                Toast.makeText(RegisterCarActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
             }
         });
     }

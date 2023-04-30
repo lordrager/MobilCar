@@ -6,10 +6,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mobilcar.Database.FirebaseDatabase.FireBaseOwnerService;
+import com.example.mobilcar.Models.Classes.Owner;
 import com.google.android.material.button.MaterialButton;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -159,16 +160,12 @@ public class RegisterActivity extends AppCompatActivity {
                 String username = usernameReg.getText().toString().trim();
                 String email = emailReg.getText().toString().trim();
                 String password = passwordReg.getText().toString().trim();
-//                FireBaseOwnerService ownerService = new FireBaseOwnerService();
-//                Owner owner = new Owner(username.concat(email),name, username, email, password);
-//                ownerService.addOwner(owner);
+                FireBaseOwnerService ownerService = new FireBaseOwnerService();
+                Owner owner = new Owner(email,name, username, email, password);
+                ownerService.addOwner(owner);
                 Intent intent = new Intent(RegisterActivity.this, RegisterCarActivity.class);
-                intent.putExtra("name", name);
-                intent.putExtra("username", username);
-                intent.putExtra("email", email);
-                intent.putExtra("password", password);
+                intent.putExtra("id", email);
                 startActivity(intent);
-                Toast.makeText(RegisterActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
             }
         });
     }

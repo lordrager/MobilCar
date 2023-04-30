@@ -4,13 +4,13 @@ public class Car {
     private String id;
     private String brand;
     private String model;
-    private short year_made;
-    private double gas_per_km;
-    private int horse_power;
+    private String year_made;
+    private String gas_per_km;
+    private String horse_power;
     private TechReview techReview;
     private LiabilityInsurance liabilityInsurance;
 
-    public Car(String id, String brand, String model, short year_made, double gas_per_km, int horse_power, TechReview techReview, LiabilityInsurance liabilityInsurance) {
+    public Car(String id, String brand, String model, String year_made, String gas_per_km, String horse_power, TechReview techReview, LiabilityInsurance liabilityInsurance) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -21,7 +21,7 @@ public class Car {
         this.liabilityInsurance = liabilityInsurance;
     }
 
-    public Car(String id, String brand, String model, double gas_per_km, int horse_power) {
+    public Car(String id, String brand, String model, String gas_per_km, String horse_power) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -53,27 +53,27 @@ public class Car {
         this.model = model;
     }
 
-    public short getYear_made() {
+    public String getYear_made() {
         return year_made;
     }
 
-    public void setYear_made(short year_made) {
+    public void setYear_made(String year_made) {
         this.year_made = year_made;
     }
 
-    public double getGas_per_km() {
+    public String getGas_per_km() {
         return gas_per_km;
     }
 
-    public void setGas_per_km(double gas_per_km) {
+    public void setGas_per_km(String gas_per_km) {
         this.gas_per_km = gas_per_km;
     }
 
-    public int getHorse_power() {
+    public String getHorse_power() {
         return horse_power;
     }
 
-    public void setHorse_power(int horse_power) {
+    public void setHorse_power(String horse_power) {
         this.horse_power = horse_power;
     }
 
