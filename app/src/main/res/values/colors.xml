@@ -7,4 +7,5 @@
     <color name="colorTitle">#362742</color>
     <color name="colorSubTitle">#c5c9cf</color>
     <color name="colorHorizontalDivider">#891a56ab</color>
+    <color name="backgroundSettings">#c5c9cf</color>
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_home">Вкъщи</string>
+    <string name="signin">вписване</string>
+    <string name="usernameLog">име</string>
+    <string name="emailLog">имейл</string>
+    <string name="passwordLog">парола</string>
+    <string name="loginbtn">Логин</string>
+</resources>

@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         TextView emailLog = (TextView) findViewById(R.id.emailLog);
         TextView passwordLog = (TextView) findViewById(R.id.passwordLog);
 
+
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
 
