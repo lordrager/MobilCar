@@ -79,55 +79,97 @@
         android:textStyle="bold" />
 
 
-    <EditText
-        android:id="@+id/passwordReg"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/hidePass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/emailReg"
-        android:layout_marginStart="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="#30ffffff"
-        android:drawableLeft="@drawable/baseline_lock_24"
-        android:drawablePadding="20dp"
-        android:hint="@string/passwordLog"
-        android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        app:passwordToggleEnabled="true">
 
-    <EditText
-        android:id="@+id/confirmPass"
+        <EditText
+            android:id="@+id/passwordReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/emailReg"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="#30ffffff"
+            android:drawableStart="@drawable/baseline_lock_24"
+            android:drawablePadding="20dp"
+            android:hint="@string/passwordLog"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/hiddenPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/passwordReg"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="#30ffffff"
-        android:drawableLeft="@drawable/baseline_password_40"
-        android:drawablePadding="20dp"
-        android:hint="@string/confirmPass"
-        android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_below="@id/hidePass"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/confirmPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordReg"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="#30ffffff"
+            android:drawableStart="@drawable/baseline_password_40"
+            android:drawablePadding="20dp"
+            android:hint="@string/confirmPass"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nextbtn"
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="65dp"
-        android:layout_below="@id/confirmPass"
+        android:layout_below="@id/hiddenPass"
+        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:enabled="false"
         android:text="@string/nextbtn" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backbtn"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/hiddenPass"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:clickable="true"
+        android:enabled="true"
+        android:drawableEnd="@drawable/baseline_arrow_back_24"
+        />
 
 </RelativeLayout>

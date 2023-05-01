@@ -33,7 +33,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.register_activity);
 
 
-
         TextView namePerson = (TextView) findViewById(R.id.namePerson);
         TextView usernameReg = (TextView) findViewById(R.id.usernameReg);
         TextView emailReg = (TextView) findViewById(R.id.emailReg);
@@ -43,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
 
         MaterialButton nextbtn = (MaterialButton) findViewById(R.id.nextbtn);
+        MaterialButton backbtn = (MaterialButton) findViewById(R.id.backbtn);
 
         namePerson.addTextChangedListener(new TextWatcher() {
             @Override
@@ -57,8 +57,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String conpassword = confirmPass.getText().toString().trim();
                 String name = namePerson.getText().toString().trim();
                 String username = usernameReg.getText().toString().trim();
-                if (name.length()  > 3 && username.length() > 4 && email.length() > 4 && password.length()  > 5 && conpassword.length() > 5) {
-                    if(email.contains("@"))
+                if (name.length() > 3 && username.length() > 4 && email.length() > 4 && password.length() > 5 && conpassword.length() > 5) {
+                    if (email.contains("@"))
                         nextbtn.setEnabled(true);
                     else nextbtn.setEnabled(false);
                 }
@@ -82,8 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String conpassword = confirmPass.getText().toString().trim();
                 String name = namePerson.getText().toString().trim();
                 String username = usernameReg.getText().toString().trim();
-                if (name.length()  > 3 && username.length() > 4 && email.length() > 4 && password.length()  > 5 && conpassword.length() > 5) {
-                    if(email.contains("@"))
+                if (name.length() > 3 && username.length() > 4 && email.length() > 4 && password.length() > 5 && conpassword.length() > 5) {
+                    if (email.contains("@"))
                         nextbtn.setEnabled(true);
                     else nextbtn.setEnabled(false);
                 }
@@ -107,8 +107,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String conpassword = confirmPass.getText().toString().trim();
                 String name = namePerson.getText().toString().trim();
                 String username = usernameReg.getText().toString().trim();
-                if (name.length()  > 3 && username.length() > 4 && email.length() > 4 && password.length()  > 5 && conpassword.length() > 5) {
-                    if(email.contains("@"))
+                if (name.length() > 3 && username.length() > 4 && email.length() > 4 && password.length() > 5 && conpassword.length() > 5) {
+                    if (email.contains("@"))
                         nextbtn.setEnabled(true);
                     else nextbtn.setEnabled(false);
                 }
@@ -132,8 +132,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String conpassword = confirmPass.getText().toString().trim();
                 String name = namePerson.getText().toString().trim();
                 String username = usernameReg.getText().toString().trim();
-                if (name.length()  > 3 && username.length() > 4 && email.length() > 4 && password.length()  > 5 && conpassword.length() > 5) {
-                    if(email.contains("@"))
+                if (name.length() > 3 && username.length() > 4 && email.length() > 4 && password.length() > 5 && conpassword.length() > 5) {
+                    if (email.contains("@"))
                         nextbtn.setEnabled(true);
                     else nextbtn.setEnabled(false);
                 }
@@ -157,8 +157,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String conpassword = confirmPass.getText().toString().trim();
                 String name = namePerson.getText().toString().trim();
                 String username = usernameReg.getText().toString().trim();
-                if (name.length()  > 3 && username.length() > 4 && email.length() > 4 && password.length()  > 5 && conpassword.length() > 5) {
-                    if(email.contains("@"))
+                if (name.length() > 3 && username.length() > 4 && email.length() > 4 && password.length() > 5 && conpassword.length() > 5) {
+                    if (email.contains("@"))
                         nextbtn.setEnabled(true);
                     else nextbtn.setEnabled(false);
                 }
@@ -180,37 +180,44 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 fAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "createUserWithEmail:success");
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d(TAG, "createUserWithEmail:success");
 
-                                FirebaseUser user = fAuth.getCurrentUser();
-                                if(Objects.nonNull(user)) {
-                                    user.sendEmailVerification();
+                                    FirebaseUser user = fAuth.getCurrentUser();
+                                    if (Objects.nonNull(user)) {
+                                        user.sendEmailVerification();
+                                    }
+
+                                    FireBaseOwnerService ownerService = new FireBaseOwnerService();
+                                    Owner owner = new Owner(name, username, email, password);
+                                    ownerService.addOwner(owner);
+
+                                    Toast.makeText(RegisterActivity.this, "Verify email.",
+                                            Toast.LENGTH_SHORT).show();
+
+                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                    Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+
                                 }
-
-                                FireBaseOwnerService ownerService = new FireBaseOwnerService();
-                                Owner owner = new Owner(name, username, email, password);
-                                ownerService.addOwner(owner);
-
-                                Toast.makeText(RegisterActivity.this, "Verify email.",
-                                        Toast.LENGTH_SHORT).show();
-
-                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                            } else {
-                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(RegisterActivity.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-
                             }
-                        }
-                    });
+                        });
 
 
+            }
+        });
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1"
-    tools:context=".AddLiabilityInsuranceActivity">
+    tools:context=".LiabilityInsuranceActivity">
 
     <TextView
-        android:id="@+id/add_Liablity"
+        android:id="@+id/addLiablity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -16,7 +16,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:gravity="center"
-        android:text="Add Liability Insurance"
+        android:text="@string/addLiability"
         android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -25,10 +25,10 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/add_Liablity"
+        android:layout_below="@id/addLiablity"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
@@ -45,39 +45,57 @@
         android:id="@+id/editStartDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/name"
-        android:ems="10"
-        android:hint="Start Date"
-        android:inputType="date" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="15"
+        android:hint="@string/editStartDate"
+        android:inputType="date"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editEndDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/editStartDate"
-        android:ems="10"
-        android:hint="End Date"
-        android:inputType="date" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="15"
+        android:hint="@string/editEndDate"
+        android:inputType="date"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/editPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:hint="Add price"
         android:layout_below="@id/editEndDate"
-        android:ems="10"
-        android:inputType="number" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="15"
+        android:hint="@string/editPrice"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/confirmDocbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/editPrice"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/editTextNumber"
-        android:text="Button" />
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="@string/confirmDocbtn"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

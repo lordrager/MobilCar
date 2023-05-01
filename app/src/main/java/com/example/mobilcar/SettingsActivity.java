@@ -19,7 +19,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        MaterialButton log_outbtn = (MaterialButton) findViewById(R.id.log_out);
+        MaterialButton logoutbtn = (MaterialButton) findViewById(R.id.logout);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
@@ -44,7 +44,7 @@ public class SettingsActivity extends AppCompatActivity {
             return true;
         });
 
-        log_outbtn.setOnClickListener(new View.OnClickListener() {
+        logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth fAuth;

@@ -70,8 +70,8 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
-                android:padding="20dp"
                 android:hint="@string/brandCar"
+                android:padding="20dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
@@ -109,12 +109,13 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
+                android:hint="@string/modelCar"
                 android:padding="20dp"
                 android:textColor="@color/white"
-                android:hint="@string/modelCar"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
-                android:textStyle="normal" /> />
+                android:textStyle="normal" />
+            />
         </LinearLayout>
 
         <View
@@ -154,12 +155,13 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
+                android:hint="@string/gasExpenseCar"
                 android:padding="20dp"
                 android:textColor="@color/white"
-                android:hint="@string/gasExpenseCar"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
-                android:textStyle="normal" /> />
+                android:textStyle="normal" />
+            />
         </LinearLayout>
 
         <View
@@ -192,28 +194,31 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
-                android:padding="20dp"
                 android:hint="@string/horsePowerCar"
+                android:padding="20dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
-                android:textStyle="normal" /> />
+                android:textStyle="normal" />
+            />
         </LinearLayout>
 
         <Button
-            android:id="@+id/addMorebtn"
-            android:layout_width="110dp"
+            android:id="@+id/toDocsbtn"
+            android:layout_width="130dp"
             android:layout_height="60dp"
+            android:layout_marginStart="270dp"
             android:layout_marginTop="60dp"
-            android:layout_marginLeft="300dp"
-            android:text="@string/addCarsbtn" />
+            android:text="@string/toDocsbtn" />
 
         <Button
             android:id="@+id/registerbtn"
-            android:layout_width="110dp"
+            android:layout_width="130dp"
             android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:textSize="11sp"
+            android:textStyle="bold"
             android:layout_marginTop="-60dp"
-            android:layout_marginLeft="10dp"
             android:text="@string/registerbtn" />
 
     </LinearLayout>

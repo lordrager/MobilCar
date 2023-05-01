@@ -32,4 +32,16 @@
     <string name="gasExpenseCar">Напиши разход на гориво</string>
     <string name="horsePower">Конски сили</string>
     <string name="horsePowerCar">Напиши конски сили</string>
+    <string name="toDocsbtn">Към Документи</string>
+
+    <string name="addLiability">Гражданска Отговорност</string>
+    <string name="addTech">Технически Преглед</string>
+    <string name="editStartDate">Начална дата </string>
+    <string name="editEndDate">Крайна дата </string>
+    <string name="editPrice">Цена </string>
+    <string name="confirmDocbtn">Потвърди документ </string>
+
+    <string name="changeLang">Промени език</string>
+
+    <string name="logout">Изход</string>
 </resources>

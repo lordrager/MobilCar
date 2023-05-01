@@ -41,31 +41,43 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-
-    <EditText
-        android:id="@+id/passwordLog"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/hidePass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/emailLog"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawableLeft="@drawable/baseline_lock_24"
-        android:drawablePadding="20dp"
-        android:hint="@string/passwordLog"
-        android:padding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/passwordLog"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/emailLog"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#30ffffff"
+            android:drawableStart="@drawable/baseline_lock_24"
+            android:drawablePadding="20dp"
+            android:hint="@string/passwordLog"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/passwordLog"
+        android:layout_height="55dp"
+        android:layout_below="@id/hidePass"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="80dp"
         android:layout_marginTop="35dp"
@@ -73,12 +85,13 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:enabled="false"
-        android:text="@string/loginbtn" />
+        android:text="@string/loginbtn"
+        android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registerbtn"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="55dp"
         android:layout_below="@+id/loginbtn"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -89,7 +102,21 @@
         android:enabled="true"
         android:maxLines="1"
         android:singleLine="true"
-        android:text="@string/registerbtn" />
+        android:text="@string/registerbtn"
+        android:textStyle="bold" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/changeLang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registerbtn"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/changeLang" />
 
 
 </RelativeLayout>

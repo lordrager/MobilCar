@@ -37,7 +37,7 @@
     <string name="nextbtn">NEXT</string>
 
     <string name="carDiary">Welcome to your car collection</string>
-    <string name="addCarsbtn">Add Cars</string>
+    <string name="addCarsbtn">Add Car</string>
 
     <string name="nameLogged">Viktor Hazan</string>
     <string name="something">Sofia, BG</string>
@@ -55,4 +55,16 @@
     <string name="gasExpenseCar">Type average gas expense</string>
     <string name="horsePower">Horse Power</string>
     <string name="horsePowerCar">Type horse power</string>
+    <string name="toDocsbtn">To Documents</string>
+
+    <string name="addLiability">Liability Insurance</string>
+    <string name="addTech">Tech Review</string>
+    <string name="editStartDate">Start Date </string>
+    <string name="editEndDate">End Date </string>
+    <string name="editPrice">Add Price </string>
+    <string name="confirmDocbtn">Confirm Document </string>
+
+    <string name="changeLang">Change Language</string>
+
+    <string name="logout">Logout</string>
 </resources>

@@ -2,7 +2,12 @@ package com.example.mobilcar;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.ActionBar;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +27,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -29,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        loadLocale();
         setContentView(R.layout.activity_login);
 
         FirebaseAuth fAuth;
@@ -36,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseUser user = fAuth.getCurrentUser();
 
-        if(Objects.nonNull(user) && user.isEmailVerified()) {
+        if (Objects.nonNull(user) && user.isEmailVerified()) {
             Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
             startActivity(intent);
         }
@@ -47,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
-
+        MaterialButton changeLang = (MaterialButton) findViewById(R.id.changeLang);
 
 
         passwordLog.addTextChangedListener(new TextWatcher() {
@@ -105,15 +113,14 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             boolean isVerified = Objects.requireNonNull(fAuth.getCurrentUser()).isEmailVerified();
-                            if(isVerified) {
+                            if (isVerified) {
                                 Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
                                 startActivity(intent);
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(LoginActivity.this, "Please verify.",
                                         Toast.LENGTH_SHORT).show();
                             }
-                        }else {
+                        } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
@@ -125,7 +132,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,5 +139,52 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        changeLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showChangeLangDialog();
+            }
+        });
+    }
+
+    private void showChangeLangDialog() {
+        final String[] listItems = {"English", "Български"};
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(LoginActivity.this);
+        mBuilder.setTitle("Choose Language");
+        mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == 0) {
+                    setLocale("en");
+                    recreate();
+                }
+                if (which == 1) {
+                    setLocale("bg");
+                    recreate();
+                }
+                dialog.dismiss();
+            }
+        });
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();
+    }
+
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString("My Lang", lang);
+        editor.apply();
+    }
+
+    public void loadLocale() {
+        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String language = prefs.getString("My Lang", "");
+        setLocale(language);
     }
 }
