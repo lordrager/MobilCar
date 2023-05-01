@@ -16,11 +16,9 @@
     <string name="carDiary">Вашите коли:</string>
     <string name="addCarsbtn">Добави кола</string>
 
-    <string name="nameLogged">Виктор Хазан</string>
-    <string name="something">София, България</string>
     <string name="phoneLogged">Телефон</string>
     <string name="locationLogged">Локация</string>
-    <string name="birthDate">Дата на раждане</string>
+
 
     <string name="addYourCar">ДОБАВИ СВОЯТА КОЛА</string>
     <string name="collectionOfCars">Всички коли</string>

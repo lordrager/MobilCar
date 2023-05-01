@@ -30,19 +30,17 @@
                 android:id="@+id/nameLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nameLogged"
                 android:textColor="@color/colorTitle"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/something"
+                android:id="@+id/cityOfLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5px"
                 android:layout_marginBottom="50px"
-                android:text="@string/something"
-                android:textColor="@color/colorSubTitle"
+                android:textColor="@color/colorTitle"
                 android:textSize="15sp"
                 android:textStyle="normal" />
         </LinearLayout>
@@ -61,18 +59,18 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/emailLogged"
+                android:id="@+id/usernameLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/emailLog"
+                android:text="Username"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/usernameUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="viki.hazan@gmail.com"
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
                 android:textStyle="normal" />
@@ -92,20 +90,19 @@
             android:layout_marginLeft="120px"
             android:orientation="vertical">
 
-
             <TextView
-                android:id="@+id/phoneLogged"
+                android:id="@+id/emailLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/phoneLogged"
+                android:text="@string/emailLog"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/emailUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0887101862"
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
                 android:textStyle="normal" />
@@ -118,6 +115,39 @@
             android:layout_marginRight="20px"
             android:layout_marginBottom="10px"
             android:background="@color/white" />
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="120px"-->
+<!--            android:orientation="vertical">-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/phoneLogged"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/phoneLogged"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="25sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="0887101862"-->
+<!--                android:textColor="@color/colorSubTitle"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="normal" />-->
+<!--        </LinearLayout>-->
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="2px"-->
+<!--            android:layout_marginTop="20px"-->
+<!--            android:layout_marginRight="20px"-->
+<!--            android:layout_marginBottom="10px"-->
+<!--            android:background="@color/white" />-->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -135,6 +165,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/locationUserLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mladost, str. Vazov"
@@ -157,22 +188,6 @@
             android:layout_marginLeft="120px"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/birthDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/birthDate"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="17 December 2001"
-                android:textColor="@color/colorSubTitle"
-                android:textSize="20sp"
-                android:textStyle="normal" />
         </LinearLayout>
 
         <FrameLayout

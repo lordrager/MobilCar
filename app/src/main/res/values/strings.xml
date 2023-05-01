@@ -39,11 +39,8 @@
     <string name="carDiary">Welcome to your car collection</string>
     <string name="addCarsbtn">Add Car</string>
 
-    <string name="nameLogged">Viktor Hazan</string>
-    <string name="something">Sofia, BG</string>
     <string name="phoneLogged">Phone</string>
     <string name="locationLogged">Location</string>
-    <string name="birthDate">Birth Date</string>
 
     <string name="addYourCar">ADD YOUR CAR</string>
     <string name="collectionOfCars">Collection of cars</string>

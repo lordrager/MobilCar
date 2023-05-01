@@ -4,10 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mobilcar.Models.Classes.Owner;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Objects;
 
 public class PersonInfoMainPage extends AppCompatActivity {
 
@@ -16,6 +25,27 @@ public class PersonInfoMainPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_info_main_page);
+
+
+        TextView name = (TextView) findViewById(R.id.nameLogged);
+        TextView city = (TextView) findViewById(R.id.cityOfLogged);
+        TextView email = (TextView) findViewById(R.id.emailUser);
+        TextView username = (TextView) findViewById(R.id.usernameUser);
+
+
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()));
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Owner owner = documentSnapshot.toObject(Owner.class);
+                name.setText(owner.getName());
+                email.setText(owner.getEmail());
+                username.setText(owner.getUsername());
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
