@@ -14,6 +14,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

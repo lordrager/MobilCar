@@ -185,7 +185,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void createNotificationChannel() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "My Notification";
             String description = "My notification description";
 

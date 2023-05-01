@@ -6,10 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class PersonInfoMainPage extends AppCompatActivity {
-
 
 
     @Override
@@ -24,7 +24,7 @@ public class PersonInfoMainPage extends AppCompatActivity {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-            if(id == R.id.sweethome) {
+            if (id == R.id.sweethome) {
 
             } else if (id == R.id.myCar) {
                 Intent intent1 = new Intent(PersonInfoMainPage.this, CarProfileActivity.class);
@@ -39,7 +39,6 @@ public class PersonInfoMainPage extends AppCompatActivity {
             }
             return true;
         });
-
 
 
     }

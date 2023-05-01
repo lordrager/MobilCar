@@ -7,162 +7,172 @@
     tools:context=".PersonInfoMainPage">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBack">
+        android:background="@color/colorBack"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/firstlayer"
             android:gravity="center"
-            android:background="@drawable/firstlayer">
+            android:orientation="vertical">
 
             <ImageView
-                android:layout_marginTop="50px"
-                android:layout_marginBottom="50px"
                 android:layout_width="300px"
                 android:layout_height="300px"
-                android:src="@drawable/carinfo"/>
+                android:layout_marginTop="50px"
+                android:layout_marginBottom="50px"
+                android:src="@drawable/carinfo" />
+
             <TextView
                 android:id="@+id/nameLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
-                android:textStyle="bold"
                 android:text="@string/nameLogged"
                 android:textColor="@color/colorTitle"
-                />
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/something"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textStyle="normal"
+                android:layout_marginTop="5px"
+                android:layout_marginBottom="50px"
                 android:text="@string/something"
                 android:textColor="@color/colorSubTitle"
-                android:layout_marginBottom="50px"
-                android:layout_marginTop="5px"
-                />
+                android:textSize="15sp"
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="100px"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120px"/>
+            android:layout_marginLeft="120px"
+            android:orientation="vertical"
+            android:paddingTop="100px" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120px">
+            android:layout_marginLeft="120px"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/emailLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/emailLog"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold"
-                android:text="@string/emailLog"/>
+                android:textStyle="bold" />
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="viki.hazan@gmail.com"
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
-                android:textStyle="normal"
-                android:text="viki.hazan@gmail.com"/>
+                android:textStyle="normal" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_marginTop="20px"
             android:layout_marginRight="20px"
             android:layout_marginBottom="10px"
-            android:background="@color/white"/>
+            android:background="@color/white" />
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120px">
+            android:layout_marginLeft="120px"
+            android:orientation="vertical">
 
 
             <TextView
                 android:id="@+id/phoneLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/phoneLogged"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold"
-                android:text="@string/phoneLogged"/>
+                android:textStyle="bold" />
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="0887101862"
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
-                android:textStyle="normal"
-                android:text="0887101862"/>
+                android:textStyle="normal" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_marginTop="20px"
             android:layout_marginRight="20px"
             android:layout_marginBottom="10px"
-            android:background="@color/white"/>
+            android:background="@color/white" />
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120px">
+            android:layout_marginLeft="120px"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/locationLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/locationLogged"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold"
-                android:text="@string/locationLogged"/>
+                android:textStyle="bold" />
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Mladost, str. Vazov"
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
-                android:textStyle="normal"
-                android:text="Mladost, str. Vazov"/>
+                android:textStyle="normal" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:layout_marginTop="20px"
             android:layout_marginRight="20px"
             android:layout_marginBottom="10px"
-            android:background="@color/white"/>
+            android:background="@color/white" />
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120px">
+            android:layout_marginLeft="120px"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/birthDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/birthDate"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold"
-                android:text="@string/birthDate"/>
+                android:textStyle="bold" />
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="17 December 2001"
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
-                android:textStyle="normal"
-                android:text="17 December 2001"/>
+                android:textStyle="normal" />
         </LinearLayout>
 
         <FrameLayout
@@ -182,7 +192,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

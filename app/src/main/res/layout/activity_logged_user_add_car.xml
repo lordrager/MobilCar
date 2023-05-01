@@ -67,8 +67,8 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
-                android:padding="20dp"
                 android:hint="Type model"
+                android:padding="20dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
@@ -105,12 +105,13 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
+                android:hint="Type brand"
                 android:padding="20dp"
                 android:textColor="@color/white"
-                android:hint="Type brand"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
-                android:textStyle="normal" /> />
+                android:textStyle="normal" />
+            />
         </LinearLayout>
 
         <View
@@ -149,12 +150,13 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
+                android:hint="Type average gas exp"
                 android:padding="20dp"
                 android:textColor="@color/white"
-                android:hint="Type average gas exp"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
-                android:textStyle="normal" /> />
+                android:textStyle="normal" />
+            />
         </LinearLayout>
 
         <View
@@ -186,28 +188,29 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
-                android:padding="20dp"
                 android:hint="Type horse power"
+                android:padding="20dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="20sp"
-                android:textStyle="normal" /> />
+                android:textStyle="normal" />
+            />
         </LinearLayout>
 
         <Button
             android:id="@+id/addMorebtn"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:layout_marginTop="60dp"
             android:layout_marginLeft="300dp"
+            android:layout_marginTop="60dp"
             android:text="Add More" />
 
         <Button
             android:id="@+id/finishbtn"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:layout_marginTop="-60dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="-60dp"
             android:text="Finish" />
 
 

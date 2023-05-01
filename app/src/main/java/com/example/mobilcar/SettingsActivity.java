@@ -28,7 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-            if(id == R.id.sweethome) {
+            if (id == R.id.sweethome) {
                 Intent intent1 = new Intent(SettingsActivity.this, PersonInfoMainPage.class);
                 startActivity(intent1);
             } else if (id == R.id.myCar) {

@@ -168,8 +168,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:clickable="true"
-        android:enabled="true"
         android:drawableEnd="@drawable/baseline_arrow_back_24"
-        />
+        android:enabled="true" />
 
 </RelativeLayout>
