@@ -3,13 +3,11 @@ package com.example.mobilcar.Models.Abstact;
 import java.util.Date;
 
 public abstract class CarDocuments {
-    private int id;
     private String name;
     private Date start_date;
     private Date end_date;
     private double price;
-    public CarDocuments(int id, String name, Date start_date, Date end_date, double price) {
-        this.id= id;
+    public CarDocuments(String name, Date start_date, Date end_date, double price) {
         this.name = name;
         this.start_date = start_date;
         this.end_date = end_date;
@@ -21,14 +19,6 @@ public abstract class CarDocuments {
 
     public void setStart_date(Date start_date) {
         this.start_date = start_date;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

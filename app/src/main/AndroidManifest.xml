@@ -56,6 +56,18 @@
         <activity
             android:name=".GoogleMapsActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".AddTechReviewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AddLiabilityInsuranceActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".waiting_email_verification_activity"
+            android:exported="false" />
     </application>
 
 </manifest>

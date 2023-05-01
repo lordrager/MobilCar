@@ -1,13 +1,16 @@
 package com.example.mobilcar;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -15,6 +18,8 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        MaterialButton log_outbtn = (MaterialButton) findViewById(R.id.log_out);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
@@ -37,6 +42,17 @@ public class SettingsActivity extends AppCompatActivity {
 
             }
             return true;
+        });
+
+        log_outbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth fAuth;
+                fAuth = FirebaseAuth.getInstance();
+                fAuth.signOut();
+                Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
         });
 
     }

@@ -1,7 +1,8 @@
 package com.example.mobilcar.Models.Classes;
 
+import androidx.annotation.NonNull;
+
 public class Car {
-    private String id;
     private String brand;
     private String model;
     private String year_made;
@@ -10,8 +11,7 @@ public class Car {
     private TechReview techReview;
     private LiabilityInsurance liabilityInsurance;
 
-    public Car(String id, String brand, String model, String year_made, String gas_per_km, String horse_power, TechReview techReview, LiabilityInsurance liabilityInsurance) {
-        this.id = id;
+    public Car(String brand, String model, String year_made, String gas_per_km, String horse_power, TechReview techReview, LiabilityInsurance liabilityInsurance) {
         this.brand = brand;
         this.model = model;
         this.year_made = year_made;
@@ -21,20 +21,12 @@ public class Car {
         this.liabilityInsurance = liabilityInsurance;
     }
 
-    public Car(String id, String brand, String model, String gas_per_km, String horse_power) {
-        this.id = id;
+    public Car(String brand, String model, String gas_per_km, String horse_power) {
+
         this.brand = brand;
         this.model = model;
         this.gas_per_km = gas_per_km;
         this.horse_power = horse_power;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getBrand() {
@@ -91,5 +83,19 @@ public class Car {
 
     public void setLiabilityInsurance(LiabilityInsurance liabilityInsurance) {
         this.liabilityInsurance = liabilityInsurance;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Car{" +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", year_made='" + year_made + '\'' +
+                ", gas_per_km='" + gas_per_km + '\'' +
+                ", horse_power='" + horse_power + '\'' +
+                ", techReview=" + techReview +
+                ", liabilityInsurance=" + liabilityInsurance +
+                '}';
     }
 }

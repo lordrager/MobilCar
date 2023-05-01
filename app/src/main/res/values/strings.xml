@@ -29,7 +29,7 @@
     <string name="emailLog">Email</string>
     <string name="passwordLog">Password</string>
     <string name="loginbtn">LOGIN</string>
-    <string name="registerbtn">REGISTER</string>
+    <string name="registerbtn">REGISTER INSTEAD</string>
     <string name="forgotpass">Forgot Password?</string>
 
     <string name="namePerson">First Name</string>

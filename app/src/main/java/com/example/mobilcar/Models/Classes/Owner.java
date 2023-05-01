@@ -2,30 +2,31 @@ package com.example.mobilcar.Models.Classes;
 
 import com.example.mobilcar.Models.Abstact.Human;
 
+import java.util.List;
+
 
 public class Owner extends Human {
-    private Car car;
+    private List<Car> cars;
 
-    public Owner(String id, String name, String username, String email, String password, Car car ) {
-        super(id,name, email, username, password);
-        this.car = car;
+    public Owner(String name, String username, String email, String password, List<Car> cars ) {
+        super(name, email, username, password);
+        this.cars = cars;
     }
 
-    public Owner(String id, String name, String username, String email, String password) {
-        super(id,name, email, username, password);
+    public Owner(String name, String username, String email, String password) {
+        super(name, email, username, password);
+        //cars =  Collections.<Car>emptyList();
     }
 
     public Owner() {
         super();
     }
 
-    public Car getCar() {
-        return car;
+    public List<Car> getCars() {
+        return cars;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
-
-
 }

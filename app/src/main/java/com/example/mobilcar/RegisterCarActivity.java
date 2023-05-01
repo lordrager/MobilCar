@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseCarService;
+import com.example.mobilcar.Database.FirebaseDatabase.FireBaseOwnerService;
 import com.example.mobilcar.Models.Classes.Car;
 import com.google.android.material.button.MaterialButton;
 
@@ -25,8 +26,7 @@ public class RegisterCarActivity extends AppCompatActivity {
         TextView gas_expenseLog = (TextView) findViewById(R.id.gasExpense);
         TextView horseLog = (TextView) findViewById(R.id.horsePower);
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
-        Bundle extras = getIntent().getExtras();
-        String id = extras.getString("id");
+
 
         markLog.addTextChangedListener(new TextWatcher() {
             @Override
@@ -130,12 +130,19 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String model = modelLog.getText().toString().trim();
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
-                Car car = new Car(id, mark, model, gas, horse);
+
+
+
+
+                Car car = new Car(mark, model, gas, horse);
                 FireBaseCarService carService = new FireBaseCarService();
                 carService.addCar(car);
+
+                FireBaseOwnerService ownerService = new FireBaseOwnerService();
+                ownerService.getOwner();
+
+
                 Intent intent = new Intent(RegisterCarActivity.this, PersonInfoMainPage.class);
-                intent.putExtra("OwnerId", id);
-                intent.putExtra("CarModel", model);
                 startActivity(intent);
                 Toast.makeText(RegisterCarActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
             }

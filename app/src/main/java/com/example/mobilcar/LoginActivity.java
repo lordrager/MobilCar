@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,9 +17,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,10 +29,18 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_login);
 
-        TextView usernameLog = (TextView) findViewById(R.id.usernameLog);
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = fAuth.getCurrentUser();
+
+        if(Objects.nonNull(user) && user.isEmailVerified()) {
+            Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
+            startActivity(intent);
+        }
+
         TextView emailLog = (TextView) findViewById(R.id.emailLog);
         TextView passwordLog = (TextView) findViewById(R.id.passwordLog);
 
@@ -37,26 +48,8 @@ public class LoginActivity extends AppCompatActivity {
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
 
-        usernameLog.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if ((emailLog.length() > 0 && passwordLog.length() >= 3) || (usernameLog.length() >= 3 && passwordLog.length() >= 3)) {
-                    loginbtn.setEnabled(true);
-                } else {
-                    loginbtn.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         passwordLog.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -65,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if ((emailLog.length() > 0 && passwordLog.length() >= 3) || (usernameLog.length() >= 3 && passwordLog.length() >= 3)) {
+                if (emailLog.length() > 0 && passwordLog.length() >= 3) {
                     loginbtn.setEnabled(true);
                 } else {
                     loginbtn.setEnabled(false);
@@ -85,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if ((emailLog.length() > 0 && passwordLog.length() >= 3) || (usernameLog.length() >= 3 && passwordLog.length() >= 3)) {
+                if (emailLog.length() > 0 && passwordLog.length() >= 3) {
                     loginbtn.setEnabled(true);
                 } else {
                     loginbtn.setEnabled(false);
@@ -105,48 +98,30 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = emailLog.getText().toString().trim();
                 String password = passwordLog.getText().toString().trim();
-                String username = usernameLog.getText().toString().trim();
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                DocumentReference docRef = db.collection("owners").document(email);
-                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+
+                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                            } else {
-                                Log.d(TAG, "No such document");
+
+                            boolean isVerified = Objects.requireNonNull(fAuth.getCurrentUser()).isEmailVerified();
+                            if(isVerified) {
+                                Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
+                                startActivity(intent);
                             }
-                        } else {
-                            Log.d(TAG, "get failed with ", task.getException());
+                            else {
+                                Toast.makeText(LoginActivity.this, "Please verify.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });
-//                FirebaseFirestore db = FirebaseFirestore.getInstance();
-//                DocumentReference docRef = db.collection("owners").document(email);
-//                docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-//                    @Override
-//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-//                        Owner owner = documentSnapshot.toObject(Owner.class);
-//                        if(owner.getEmail().equals(email) && owner.getPassword().equals(password)){
-//                            Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
-//                            startActivity(intent);
-//                        }
-//                        else if(owner.getUsername().equals(username) && owner.getPassword().equals(password)){
-//                            Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
-//                            startActivity(intent);
-//                        }
-//                        else if(owner.getUsername().equals(username) && owner.getPassword().equals(password) && owner.getEmail().equals(email)){
-//                            Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
-//                            startActivity(intent);
-//                        }
-//                    }
-//                });
-//                if (usernameLog.getText().toString().equals("viki") && passwordLog.getText().toString().equals("1234")) {
-//                    Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
-//                    startActivity(intent);
-//                }
             }
         });
 
