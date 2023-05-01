@@ -31,7 +31,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:background="#30ffffff"
-        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:drawableLeft="@drawable/baseline_drive_file_rename_outline_40"
         android:drawablePadding="20dp"
         android:hint="@string/namePerson"
         android:padding="20dp"
