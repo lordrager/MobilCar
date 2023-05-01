@@ -70,6 +70,7 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
+                android:singleLine="true"
                 android:hint="@string/brandCar"
                 android:padding="20dp"
                 android:textColor="@color/white"
@@ -109,6 +110,7 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
+                android:singleLine="true"
                 android:hint="@string/modelCar"
                 android:padding="20dp"
                 android:textColor="@color/white"
@@ -156,6 +158,7 @@
                 android:height="60dp"
                 android:background="#30ffffff"
                 android:hint="@string/gasExpenseCar"
+                android:singleLine="true"
                 android:padding="20dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
@@ -198,6 +201,7 @@
                 android:padding="20dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
+                android:singleLine="true"
                 android:textSize="20sp"
                 android:textStyle="normal" />
             />

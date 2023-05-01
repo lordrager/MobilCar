@@ -69,7 +69,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="viki.hazan@gmail.com"
@@ -102,7 +102,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0887101862"
@@ -134,7 +134,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mladost, str. Vazov"
@@ -166,7 +166,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="17 December 2001"

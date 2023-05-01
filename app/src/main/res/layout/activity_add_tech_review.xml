@@ -36,6 +36,7 @@
         android:drawablePadding="20dp"
         android:hint="Name"
         android:padding="20dp"
+        android:singleLine="true"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20sp"
@@ -45,31 +46,34 @@
         android:id="@+id/editStartDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/name"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Start Date"
-        android:inputType="date" />
+        android:inputType="date"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/editEndDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/editStartDate"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="End Date"
-        android:inputType="date" />
+        android:inputType="date"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/addTechPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:hint="Add price"
         android:layout_below="@id/editEndDate"
+        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="number" />
+        android:hint="Add price"
+        android:inputType="number"
+        android:singleLine="true" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/add_techreview_btn"
@@ -84,7 +88,6 @@
         android:backgroundTint="@android:color/holo_blue_dark"
         android:enabled="false"
         android:text="@string/loginbtn" />
-
 
 
 </RelativeLayout>

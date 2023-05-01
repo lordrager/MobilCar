@@ -33,6 +33,7 @@
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/baseline_mail_24"
+        android:singleLine="true"
         android:drawablePadding="20dp"
         android:hint="Name"
         android:padding="20dp"
@@ -47,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/name"
+        android:singleLine="true"
         android:ems="10"
         android:hint="Start Date"
         android:inputType="date" />
@@ -59,6 +61,7 @@
         android:layout_below="@id/editStartDate"
         android:ems="10"
         android:hint="End Date"
+        android:singleLine="true"
         android:inputType="date" />
 
     <EditText
@@ -66,6 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:singleLine="true"
         android:hint="Add price"
         android:layout_below="@id/editEndDate"
         android:ems="10"

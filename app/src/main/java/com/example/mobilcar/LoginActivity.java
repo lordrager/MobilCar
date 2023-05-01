@@ -18,6 +18,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,10 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import android.view.View.OnKeyListener;
+import android.view.View;
+import android.view.KeyEvent;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -59,16 +64,15 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        TextView emailLog = (TextView) findViewById(R.id.emailLog);
-        TextView passwordLog = (TextView) findViewById(R.id.passwordLog);
+        EditText emailLog = (EditText) findViewById(R.id.emailLog);
+        EditText passwordLog = (EditText) findViewById(R.id.passwordLog);
 
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
         MaterialButton changeLang = (MaterialButton) findViewById(R.id.changeLang);
 
-
-        passwordLog.addTextChangedListener(new TextWatcher() {
+        emailLog.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -88,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        emailLog.addTextChangedListener(new TextWatcher() {
+        passwordLog.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
