@@ -8,9 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -23,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobilCar"
         tools:targetApi="31">
+        <activity
+            android:name=".CarInformationActivity"
+            android:exported="false" />
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />
@@ -58,15 +59,9 @@
         <activity
             android:name=".GoogleMapsActivity"
             android:exported="false" />
-
         <activity
             android:name=".TechReviewActivity"
             android:exported="false" />
-
-<!--        <activity-->
-<!--            android:name=".LiabilityInsuranceActivity"-->
-<!--            android:exported="false" />-->
-
     </application>
 
 </manifest>

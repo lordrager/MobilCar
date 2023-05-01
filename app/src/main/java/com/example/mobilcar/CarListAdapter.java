@@ -1,6 +1,7 @@
 package com.example.mobilcar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,10 @@ import com.example.mobilcar.Models.Classes.Car;
 import java.util.ArrayList;
 
 public class CarListAdapter extends ArrayAdapter<Car> {
+    private Context c;
     public CarListAdapter(@NonNull Context context, ArrayList<Car> dataModalArrayList) {
         super(context, 0, dataModalArrayList);
+        this.c = context;
     }
 
     @NonNull
@@ -35,12 +38,14 @@ public class CarListAdapter extends ArrayAdapter<Car> {
         listItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // on the item click on our list view.
-                // we are displaying a toast message.
-                Toast.makeText(getContext(), "Item clicked is : " + dataModal.getModel(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(c, "Item clicked is : " + dataModal.getModel(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(c, CarInformationActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                c.startActivity(intent);
             }
         });
         return listItemView;
     }
+
 
 }
