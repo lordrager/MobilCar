@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseCarService;
-import com.example.mobilcar.Database.FirebaseDatabase.FireBaseOwnerService;
 import com.example.mobilcar.Models.Classes.Car;
 import com.google.android.material.button.MaterialButton;
 
@@ -134,9 +133,6 @@ public class RegisterCarActivity extends AppCompatActivity {
                 Car car = new Car(mark, model, gas, horse);
                 FireBaseCarService carService = new FireBaseCarService();
                 carService.addCar(car);
-
-                FireBaseOwnerService ownerService = new FireBaseOwnerService();
-                ownerService.getOwner();
 
 
                 Intent intent = new Intent(RegisterCarActivity.this, PersonInfoMainPage.class);

@@ -8,7 +8,7 @@
     tools:context=".TechReviewActivity">
 
     <TextView
-        android:id="@+id/addTech"
+        android:id="@+id/add_Tech"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -16,7 +16,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:gravity="center"
-        android:text="@string/addTech"
+        android:text="Add Tech Review"
         android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -25,14 +25,14 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/addTech"
+        android:layout_below="@id/add_Tech"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
-        android:drawableLeft="@drawable/baseline_drive_file_rename_outline_40"
+        android:drawableLeft="@drawable/baseline_mail_24"
         android:drawablePadding="20dp"
         android:hint="Name"
         android:padding="20dp"
@@ -45,57 +45,46 @@
         android:id="@+id/editStartDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:ems="15"
-        android:hint="@string/editStartDate"
-        android:inputType="date"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_below="@id/name"
+        android:ems="10"
+        android:hint="Start Date"
+        android:inputType="date" />
 
     <EditText
         android:id="@+id/editEndDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editStartDate"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:ems="15"
-        android:hint="@string/editEndDate"
-        android:inputType="date"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_below="@id/editStartDate"
+        android:ems="10"
+        android:hint="End Date"
+        android:inputType="date" />
 
     <EditText
-        android:id="@+id/editPrice"
+        android:id="@+id/addTechPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Add price"
         android:layout_below="@id/editEndDate"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:ems="15"
-        android:hint="@string/editPrice"
-        android:inputType="number"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:ems="10"
+        android:inputType="number" />
 
-    <Button
-        android:id="@+id/confirmDocbtn"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_techreview_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editPrice"
+        android:layout_below="@id/addTechPrice"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/holo_blue_dark"
-        android:text="@string/confirmDocbtn"
-        android:textStyle="bold" />
+        android:enabled="false"
+        android:text="@string/loginbtn" />
+
 
 
 </RelativeLayout>

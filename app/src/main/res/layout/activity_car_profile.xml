@@ -24,15 +24,20 @@
         android:layout_marginLeft="160dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/carDiary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="70dp"
-            android:text="@string/carDiary"
-            android:textColor="@android:color/black"
-            android:textSize="25sp" />
+        <ListView
+            android:id="@+id/carsList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/carDiary"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:layout_marginTop="70dp"-->
+<!--            android:text="@string/carDiary"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="25sp" />-->
     </LinearLayout>
 
 

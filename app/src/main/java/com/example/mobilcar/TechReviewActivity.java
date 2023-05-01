@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,9 +20,9 @@ public class TechReviewActivity extends AppCompatActivity {
         TextView name = (TextView) findViewById(R.id.name);
         TextView startDate = (TextView) findViewById(R.id.editStartDate);
         TextView endDate = (TextView) findViewById(R.id.editEndDate);
-        TextView price = (TextView) findViewById(R.id.editPrice);
+        TextView price = (TextView) findViewById(R.id.addTechPrice);
 
-        Button confirmDoc = (Button) findViewById(R.id.confirmDocbtn);
+        MaterialButton confirmDoc = (MaterialButton) findViewById(R.id.add_techreview_btn);
 
         name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -120,7 +119,7 @@ public class TechReviewActivity extends AppCompatActivity {
         confirmDoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TechReviewActivity.this, LiabilityInsuranceActivity.class);
+                Intent intent = new Intent(TechReviewActivity.this, CarProfileActivity.class);
                 startActivity(intent);
             }
         });

@@ -6,11 +6,11 @@ import java.util.List;
 
 
 public class Owner extends Human {
-    private List<Car> cars;
+    //private List<Car> cars;
 
     public Owner(String name, String username, String email, String password, List<Car> cars ) {
         super(name, email, username, password);
-        this.cars = cars;
+        //this.cars = cars;
     }
 
     public Owner(String name, String username, String email, String password) {
@@ -22,11 +22,11 @@ public class Owner extends Human {
         super();
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
-    }
+//    public List<Car> getCars() {
+//        return cars;
+//    }
+//
+//    public void setCars(List<Car> cars) {
+//        this.cars = cars;
+//    }
 }

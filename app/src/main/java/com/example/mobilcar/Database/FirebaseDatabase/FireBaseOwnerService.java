@@ -71,12 +71,10 @@ public class FireBaseOwnerService {
         instance.put("Username", owner.getUsername());
         instance.put("Email", owner.getUsername());
         instance.put("Password", owner.getPassword());
-//        instance.put("Car", owner.getCars());
 
 
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
-//        instance.put("Location", owner.getLocation());
 
         db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()))
                 .set(instance)

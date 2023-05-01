@@ -28,11 +28,9 @@ public class FireBaseCarService {
         instance.put("TechReview", car.getTechReview());
         instance.put("LiabilityInsurance", car.getLiabilityInsurance());
 
-        //  db.collection("cities").document("new-city-id").set(data);
 
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
-
 
 
         db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document()

@@ -9,10 +9,12 @@ import androidx.annotation.NonNull;
 import com.example.mobilcar.Models.Classes.TechReview;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class FireBaseTechService {
 
@@ -25,7 +27,10 @@ public class FireBaseTechService {
     instance.put("End_date", techReview.getEnd_date());
     instance.put("Price", techReview.getPrice());
 
-    db.collection("techs").document(techReview.getName())
+    FirebaseAuth fAuth;
+    fAuth = FirebaseAuth.getInstance();
+
+    db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document()
             .set(techReview)
             .addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
