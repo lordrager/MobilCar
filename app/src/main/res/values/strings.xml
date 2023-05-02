@@ -62,6 +62,7 @@
     <string name="confirmDocbtn">Confirm Document </string>
 
     <string name="changeLang">Change Language</string>
+    <string name="finishbtn">Finish</string>
 
     <string name="logout">Logout</string>
 </resources>

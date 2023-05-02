@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="ADD YOUR CAR"
+                android:text="@string/addYourCar"
                 android:textColor="@color/colorTitle"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5px"
                 android:layout_marginBottom="50px"
-                android:text="Collection of cars"
+                android:text="@string/collectionOfCars"
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
                 android:textStyle="normal" />
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brand:"
+                android:text="@string/brand"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -67,7 +67,7 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
-                android:hint="Type model"
+                android:hint="@string/brandCar"
                 android:padding="20dp"
                 android:singleLine="true"
                 android:textColor="@color/white"
@@ -94,7 +94,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Model:"
+                android:text="@string/model"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -106,7 +106,7 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
-                android:hint="Type brand"
+                android:hint="@string/modelCar"
                 android:padding="20dp"
                 android:singleLine="true"
                 android:textColor="@color/white"
@@ -133,7 +133,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gas expense:"
+                android:text="@string/gasExpense"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -152,7 +152,7 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
-                android:hint="Type average gas exp"
+                android:hint="@string/gasExpenseCar"
                 android:padding="20dp"
                 android:singleLine="true"
                 android:textColor="@color/white"
@@ -179,7 +179,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Horse Power:"
+                android:text="@string/horsePower"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -191,7 +191,7 @@
                 android:width="20dp"
                 android:height="60dp"
                 android:background="#30ffffff"
-                android:hint="Type horse power"
+                android:hint="@string/horsePowerCar"
                 android:padding="20dp"
                 android:singleLine="true"
                 android:textColor="@color/white"
@@ -207,15 +207,15 @@
             android:layout_height="60dp"
             android:layout_marginLeft="300dp"
             android:layout_marginTop="60dp"
-            android:text="Add More" />
+            android:text="@string/addCarsbtn" />
 
         <Button
             android:id="@+id/finishbtn"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="-60dp"
-            android:text="Finish" />
+            android:text="@string/finishbtn" />
 
 
     </LinearLayout>

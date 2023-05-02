@@ -16,7 +16,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:gravity="center"
-        android:text="Add Liability Insurance"
+        android:text="@string/addLiability"
         android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -32,10 +32,10 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
-        android:drawableLeft="@drawable/baseline_mail_24"
+        android:drawableLeft="@drawable/baseline_drive_file_rename_outline_40"
         android:singleLine="true"
         android:drawablePadding="20dp"
-        android:hint="Name"
+        android:hint="@string/usernameLog"
         android:padding="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -50,7 +50,9 @@
         android:layout_below="@id/name"
         android:singleLine="true"
         android:ems="10"
-        android:hint="Start Date"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:hint="@string/editStartDate"
         android:inputType="date" />
 
     <EditText
@@ -60,7 +62,9 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/editStartDate"
         android:ems="10"
-        android:hint="End Date"
+        android:hint="@string/editEndDate"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:singleLine="true"
         android:inputType="date" />
 
@@ -70,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:singleLine="true"
-        android:hint="Add price"
+        android:hint="@string/editPrice"
         android:layout_below="@id/editEndDate"
         android:ems="10"
         android:inputType="number" />
@@ -80,8 +84,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:layout_below="@id/editTextNumber"
-        android:text="Button" />
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="@string/confirmDocbtn" />
 
 
 </RelativeLayout>

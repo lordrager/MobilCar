@@ -40,6 +40,8 @@
     <string name="confirmDocbtn">Потвърди документ </string>
 
     <string name="changeLang">Промени език</string>
+    <string name="finishbtn">Потвърди</string>
 
     <string name="logout">Изход</string>
+
 </resources>

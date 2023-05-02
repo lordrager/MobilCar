@@ -16,7 +16,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:gravity="center"
-        android:text="Add Tech Review"
+        android:text="@string/addTech"
         android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -32,9 +32,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
-        android:drawableLeft="@drawable/baseline_mail_24"
+        android:drawableLeft="@drawable/baseline_drive_file_rename_outline_40"
         android:drawablePadding="20dp"
-        android:hint="Name"
+        android:hint="@string/usernameLog"
         android:padding="20dp"
         android:singleLine="true"
         android:textColor="@color/black"
@@ -49,7 +49,9 @@
         android:layout_below="@id/name"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Start Date"
+        android:hint="@string/editStartDate"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:inputType="date"
         android:singleLine="true" />
 
@@ -60,7 +62,9 @@
         android:layout_below="@id/editStartDate"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="End Date"
+        android:hint="@string/editEndDate"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:inputType="date"
         android:singleLine="true" />
 
@@ -71,7 +75,9 @@
         android:layout_below="@id/editEndDate"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Add price"
+        android:hint="@string/editPrice"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:inputType="number"
         android:singleLine="true" />
 
@@ -87,7 +93,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:enabled="false"
-        android:text="@string/loginbtn" />
+        android:text="@string/confirmDocbtn" />
 
 
 </RelativeLayout>
