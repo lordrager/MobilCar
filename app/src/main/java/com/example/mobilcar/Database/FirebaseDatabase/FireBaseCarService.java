@@ -32,8 +32,9 @@ public class FireBaseCarService {
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
 
+//        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).get()
 
-        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document()
+        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(car.getModel())
                 .set(car)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

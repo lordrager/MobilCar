@@ -89,7 +89,6 @@ public class CarProfileActivity extends AppCompatActivity {
                         if (!queryDocumentSnapshots.isEmpty()) {
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                             for (DocumentSnapshot d : list) {
-//                                d.getId();
                                 Car carModal = new Car((String) d.get("brand"), (String) d.get("model"), (String) d.get("horse_power"), (String) d.get("gas_per_km"));
                                 carsArrayList.add(carModal);
                             }

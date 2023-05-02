@@ -1,5 +1,7 @@
 package com.example.mobilcar;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -10,19 +12,25 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.example.mobilcar.Database.FirebaseDatabase.FireBaseOwnerService;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Locale;
 
@@ -38,6 +46,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         MaterialButton logoutbtn = (MaterialButton) findViewById(R.id.logout);
+        MaterialButton deletebtn = (MaterialButton) findViewById(R.id.delete);
         MaterialButton changeLang = (MaterialButton) findViewById(R.id.changeLang);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -73,6 +82,27 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivity(intent);
 
                 showNotification();
+            }
+        });
+
+        deletebtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                FireBaseOwnerService fireBaseOwnerService = new FireBaseOwnerService();
+                fireBaseOwnerService.deleteOwner();
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                user.delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "User account deleted.");
+                                }
+                            }
+                        });
             }
         });
 

@@ -41,6 +41,7 @@ public class CarListAdapter extends ArrayAdapter<Car> {
                 Toast.makeText(c, "Item clicked is : " + dataModal.getModel(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(c, CarInformationActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("Car_Model",dataModal.getModel());
                 c.startActivity(intent);
             }
         });

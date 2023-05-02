@@ -32,7 +32,6 @@ public class PersonInfoMainPage extends AppCompatActivity {
         TextView email = (TextView) findViewById(R.id.emailUser);
         TextView username = (TextView) findViewById(R.id.usernameUser);
 
-
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();

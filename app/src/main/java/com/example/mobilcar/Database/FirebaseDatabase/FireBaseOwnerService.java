@@ -49,19 +49,17 @@ public class FireBaseOwnerService {
                 });
     }
 
-    public Owner getOwner(){
+    public void getOwner(){
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()));
-        final Owner[] owner = new Owner[1];
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                owner[0] = documentSnapshot.toObject(Owner.class);
+                Owner owner = documentSnapshot.toObject(Owner.class);
             }
         });
-        return owner[0];
     }
 
     public void updateOwner(Owner owner){
