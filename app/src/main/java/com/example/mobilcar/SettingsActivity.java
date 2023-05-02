@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -26,14 +27,20 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseCarService;
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseOwnerService;
+import com.example.mobilcar.Models.Classes.Owner;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -49,6 +56,27 @@ public class SettingsActivity extends AppCompatActivity {
         MaterialButton logoutbtn = (MaterialButton) findViewById(R.id.logout);
         MaterialButton deletebtn = (MaterialButton) findViewById(R.id.delete);
         MaterialButton changeLang = (MaterialButton) findViewById(R.id.changeLang);
+        MaterialButton savebtn = (MaterialButton) findViewById(R.id.save);
+
+        TextView name = (TextView) findViewById(R.id.nameLog);
+        TextView username = (TextView) findViewById(R.id.usernameLog);
+        TextView email = (TextView) findViewById(R.id.emailLog);
+        TextView password = (TextView) findViewById(R.id.passwordLog);
+
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()));
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Owner owner = documentSnapshot.toObject(Owner.class);
+                name.setText(owner.getName());
+                email.setText(owner.getEmail());
+                username.setText(owner.getUsername());
+                password.setText(owner.getPassword());
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
@@ -83,6 +111,49 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivity(intent);
 
                 showNotification();
+            }
+        });
+
+        savebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()));
+                docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        Owner owner = documentSnapshot.toObject(Owner.class);
+                        String newname = name.getText().toString().trim();
+                        String newusername = username.getText().toString().trim();
+                        String newemail = email.getText().toString().trim();
+                        String newpassword = password.getText().toString().trim();
+                        owner.setName(newname);
+                        owner.setUsername(newusername);
+                        owner.setEmail(newemail);
+                        owner.setPassword(newpassword);
+                        FireBaseOwnerService fireBaseOwnerService = new FireBaseOwnerService();
+                        fireBaseOwnerService.updateOwner(owner);
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        user.updatePassword(newpassword).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "User password updated.");
+                                }
+                            }
+                        });
+                        user.updateEmail(newemail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "User email updated.");
+                                }
+                            }
+                        });
+
+                        Intent intent = new Intent(SettingsActivity.this, PersonInfoMainPage.class);
+                        startActivity(intent);
+                    }
+                });
             }
         });
 
