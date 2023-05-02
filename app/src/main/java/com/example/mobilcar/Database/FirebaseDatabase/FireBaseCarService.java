@@ -32,8 +32,6 @@ public class FireBaseCarService {
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
 
-//        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).get()
-
         db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(car.getModel())
                 .set(car)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -61,7 +59,10 @@ public class FireBaseCarService {
         instance.put("TechReview", car.getTechReview());
         instance.put("LiabilityInsurance", car.getLiabilityInsurance());
 
-        db.collection("cars").document(car.getModel())
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+
+        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(car.getModel())
                 .set(instance)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -77,9 +78,12 @@ public class FireBaseCarService {
                 });
     }
 
-    public void deleteCar(String model){
+    public void deleteCar(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("cars").document(model)
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+
+        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document()
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

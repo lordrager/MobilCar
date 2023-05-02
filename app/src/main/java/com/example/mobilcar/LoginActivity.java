@@ -2,9 +2,7 @@ package com.example.mobilcar;
 
 import static android.content.ContentValues.TAG;
 
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
@@ -19,7 +17,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,10 +32,6 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import android.view.View.OnKeyListener;
-import android.view.View;
-import android.view.KeyEvent;
 
 import java.util.Locale;
 import java.util.Objects;

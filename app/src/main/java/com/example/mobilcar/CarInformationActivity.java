@@ -41,6 +41,7 @@ public class CarInformationActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Car car = documentSnapshot.toObject(Car.class);
+//                brand.setText();
             }
         });
 

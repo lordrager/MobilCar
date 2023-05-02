@@ -92,7 +92,6 @@ public class FireBaseOwnerService {
 
     public void deleteOwner(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
         db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()))

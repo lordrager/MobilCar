@@ -24,6 +24,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.example.mobilcar.Database.FirebaseDatabase.FireBaseCarService;
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseOwnerService;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -91,8 +92,10 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FireBaseOwnerService fireBaseOwnerService = new FireBaseOwnerService();
                 fireBaseOwnerService.deleteOwner();
-
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                FireBaseCarService fireBaseCarService = new FireBaseCarService();
+                fireBaseCarService.deleteCar();
 
                 user.delete()
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -100,6 +103,9 @@ public class SettingsActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "User account deleted.");
+                                    Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                    showNotification();
                                 }
                             }
                         });

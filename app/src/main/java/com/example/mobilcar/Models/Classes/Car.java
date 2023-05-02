@@ -10,6 +10,7 @@ public class Car {
     private String horse_power;
     private TechReview techReview;
     private LiabilityInsurance liabilityInsurance;
+//    private String user_id;
 
     public Car(String brand, String model, String year_made, String gas_per_km, String horse_power, TechReview techReview, LiabilityInsurance liabilityInsurance) {
         this.brand = brand;
@@ -84,6 +85,14 @@ public class Car {
     public void setLiabilityInsurance(LiabilityInsurance liabilityInsurance) {
         this.liabilityInsurance = liabilityInsurance;
     }
+
+//    public String getUser_id() {
+//        return user_id;
+//    }
+//
+//    public void setUser_id(String user_id) {
+//        this.user_id = user_id;
+//    }
 
     @NonNull
     @Override
