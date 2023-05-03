@@ -5,6 +5,7 @@ public class Car {
     private String model;
     private String gas_per_km;
     private String horse_power;
+
 //    private TechReview techReview;
 //    private LiabilityInsurance liabilityInsurance;
 //    private String user_id;

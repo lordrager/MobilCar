@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class TechReview extends CarDocuments {
 
-    public TechReview(String name, Date start_date, Date end_date, double price) {
+    public TechReview(String name, Date start_date, Date end_date, String price) {
         super(name, start_date, end_date, price);
     }
 }

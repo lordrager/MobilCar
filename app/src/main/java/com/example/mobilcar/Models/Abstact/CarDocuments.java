@@ -6,8 +6,8 @@ public abstract class CarDocuments {
     private String name;
     private Date start_date;
     private Date end_date;
-    private double price;
-    public CarDocuments(String name, Date start_date, Date end_date, double price) {
+    private String price;
+    public CarDocuments(String name, Date start_date, Date end_date, String price) {
         this.name = name;
         this.start_date = start_date;
         this.end_date = end_date;
@@ -37,11 +37,11 @@ public abstract class CarDocuments {
         this.end_date = end_date;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

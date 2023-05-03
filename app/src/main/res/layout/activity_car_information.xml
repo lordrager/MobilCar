@@ -136,7 +136,6 @@
                 android:id="@+id/gasCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
                 android:textStyle="normal" />
@@ -169,7 +168,6 @@
                 android:id="@+id/horseCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
                 android:textStyle="normal" />

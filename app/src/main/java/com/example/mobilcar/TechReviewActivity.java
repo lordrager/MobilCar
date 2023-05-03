@@ -9,7 +9,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mobilcar.Database.FirebaseDatabase.FireBaseTechService;
+import com.example.mobilcar.Models.Classes.TechReview;
 import com.google.android.material.button.MaterialButton;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TechReviewActivity extends AppCompatActivity {
     @Override
@@ -21,6 +27,7 @@ public class TechReviewActivity extends AppCompatActivity {
         TextView startDate = (TextView) findViewById(R.id.editStartDate);
         TextView endDate = (TextView) findViewById(R.id.editEndDate);
         TextView price = (TextView) findViewById(R.id.addTechPrice);
+
 
         MaterialButton confirmDoc = (MaterialButton) findViewById(R.id.add_techreview_btn);
 
@@ -119,6 +126,28 @@ public class TechReviewActivity extends AppCompatActivity {
         confirmDoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String nameTech = name.getText().toString().trim();
+                String startDateTech = startDate.getText().toString().trim();
+                String endDateTech = endDate.getText().toString().trim();
+                String priceTech = price.getText().toString().trim();
+                Intent getModel = getIntent();
+                String modelString;
+                modelString = getModel.getStringExtra("Car_Model");
+                Date start;
+                Date end;
+                try {
+                    start=new SimpleDateFormat("dd/mm/yyyy").parse(startDateTech);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    end=new SimpleDateFormat("dd/mm/yyyy").parse(endDateTech);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+                TechReview techReview = new TechReview(nameTech,start,end,priceTech);
+                FireBaseTechService fireBaseTechService = new FireBaseTechService();
+                fireBaseTechService.addTech(techReview, modelString);
                 Intent intent = new Intent(TechReviewActivity.this, CarProfileActivity.class);
                 startActivity(intent);
             }

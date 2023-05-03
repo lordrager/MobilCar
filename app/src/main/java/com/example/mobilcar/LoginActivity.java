@@ -42,6 +42,21 @@ public class LoginActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 1;
 
     @Override
+    protected void onStart()
+    {
+        super.onStart();
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = fAuth.getCurrentUser();
+
+        if (Objects.nonNull(user) && user.isEmailVerified() && user!=null) {
+            Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
+            startActivity(intent);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale();
@@ -50,14 +65,12 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
 
-        FirebaseUser user = fAuth.getCurrentUser();
-
-
-
-        if (Objects.nonNull(user) && user.isEmailVerified() && user!=null) {
-            Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
-            startActivity(intent);
-        }
+//        FirebaseUser user = fAuth.getCurrentUser();
+//
+//        if (Objects.nonNull(user) && user.isEmailVerified() && user!=null) {
+//            Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
+//            startActivity(intent);
+//        }
 
         EditText emailLog = (EditText) findViewById(R.id.emailLog);
         EditText passwordLog = (EditText) findViewById(R.id.passwordLog);
