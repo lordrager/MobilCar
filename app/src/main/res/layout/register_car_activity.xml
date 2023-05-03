@@ -208,20 +208,13 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/toDocsbtn"
-            android:layout_width="130dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="60dp"
-            android:text="@string/toDocsbtn" />
-
-        <Button
             android:id="@+id/registerbtn"
             android:layout_width="130dp"
             android:layout_height="60dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="-60dp"
-            android:text="@string/registerbtn"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="130dp"
+            android:layout_below="@id/horsePowerCar"
+            android:text="Register Car"
             android:textSize="11sp"
             android:textStyle="bold"
             android:visibility="visible" />

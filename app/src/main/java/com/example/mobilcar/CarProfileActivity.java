@@ -33,6 +33,16 @@ public class CarProfileActivity extends AppCompatActivity {
     FirebaseFirestore db;
 
     @Override
+    protected void onStart()
+    {
+        super.onStart();
+        carsLV = findViewById(R.id.carsList);
+        carsArrayList = new ArrayList<>();
+        db = FirebaseFirestore.getInstance();
+        loadDataInListview();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_profile);
@@ -43,10 +53,10 @@ public class CarProfileActivity extends AppCompatActivity {
         menuItem.setChecked(true);
         Button floatingActionButton = findViewById(R.id.addCarsbtn);
 
-        carsLV = findViewById(R.id.carsList);
-        carsArrayList = new ArrayList<>();
-        db = FirebaseFirestore.getInstance();
-        loadDataInListview();
+//        carsLV = findViewById(R.id.carsList);
+//        carsArrayList = new ArrayList<>();
+//        db = FirebaseFirestore.getInstance();
+//        loadDataInListview();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

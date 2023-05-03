@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,11 +22,10 @@ public class RegisterCarActivity extends AppCompatActivity {
 
         TextView markLog = (TextView) findViewById(R.id.brandCar);
         TextView modelLog = (TextView) findViewById(R.id.modelCar);
-        TextView gas_expenseLog = (TextView) findViewById(R.id.gasExpense);
-        TextView horseLog = (TextView) findViewById(R.id.horsePower);
+        TextView gas_expenseLog = (TextView) findViewById(R.id.gasExpenseCar);
+        TextView horseLog = (TextView) findViewById(R.id.horsePowerCar);
 
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
-        Button toDocsbtn = (Button) findViewById(R.id.toDocsbtn);
         registerbtn.setVisibility(View.VISIBLE);
 
 
@@ -43,7 +41,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String model = modelLog.getText().toString().trim();
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
-                if (mark.length() > 3 && model.length() > 4 && gas.length() > 0 && horse.length() > 0) {
+                if (mark.length() > 3 && model.length() > 2 && gas.length() > 0 && horse.length() > 0) {
                     registerbtn.setVisibility(View.VISIBLE);
                     registerbtn.setEnabled(true);
                 } else registerbtn.setEnabled(false);
@@ -67,7 +65,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String model = modelLog.getText().toString().trim();
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
-                if (mark.length() > 3 && model.length() > 4 && gas.length() > 0 && horse.length() > 0) {
+                if (mark.length() > 3 && model.length() > 2 && gas.length() > 0 && horse.length() > 0) {
                     registerbtn.setVisibility(View.VISIBLE);
                     registerbtn.setEnabled(true);
                 } else registerbtn.setEnabled(false);
@@ -91,7 +89,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String model = modelLog.getText().toString().trim();
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
-                if (mark.length() > 3 && model.length() > 4 && gas.length() > 0 && horse.length() > 0) {
+                if (mark.length() > 3 && model.length() > 2 && gas.length() > 0 && horse.length() > 0) {
                     registerbtn.setVisibility(View.VISIBLE);
                     registerbtn.setEnabled(true);
                 } else registerbtn.setEnabled(false);
@@ -115,7 +113,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String model = modelLog.getText().toString().trim();
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
-                if (mark.length() > 3 && model.length() > 4 && gas.length() > 0 && horse.length() > 0) {
+                if (mark.length() > 3 && model.length() > 2 && gas.length() > 0 && horse.length() > 0) {
                     registerbtn.setVisibility(View.VISIBLE);
                     registerbtn.setEnabled(true);
                 } else registerbtn.setEnabled(false);
@@ -143,22 +141,6 @@ public class RegisterCarActivity extends AppCompatActivity {
                 Intent intent = new Intent(RegisterCarActivity.this, PersonInfoMainPage.class);
                 startActivity(intent);
                 Toast.makeText(RegisterCarActivity.this, "NEW CAR ADDED!", Toast.LENGTH_SHORT).show();
-            }
-        });
-        toDocsbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String mark = markLog.getText().toString().trim();
-                String model = modelLog.getText().toString().trim();
-                String gas = gas_expenseLog.getText().toString().trim();
-                String horse = horseLog.getText().toString().trim();
-                if (mark.length() > 0 && model.length() > 0 && gas.length() > 0 && horse.length() > 0) {
-                    toDocsbtn.setEnabled(true);
-
-                } else toDocsbtn.setEnabled(false);
-
-                Intent intent = new Intent(RegisterCarActivity.this, TechReviewActivity.class);
-                startActivity(intent);
             }
         });
     }

@@ -18,7 +18,7 @@ import java.util.Objects;
 
 public class FireBaseTechService {
 
-    public void addRech(TechReview techReview) {
+    public void addTech(TechReview techReview, String model) {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Map<String, Object> instance = new HashMap<>();
@@ -30,7 +30,7 @@ public class FireBaseTechService {
     FirebaseAuth fAuth;
     fAuth = FirebaseAuth.getInstance();
 
-    db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document()
+    db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model).collection("tech").document()
             .set(techReview)
             .addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
@@ -49,10 +49,10 @@ public class FireBaseTechService {
     public void updateTech(TechReview techReview){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
-        instance.put("Name", techReview.getName());
-        instance.put("Start_date", techReview.getStart_date());
-        instance.put("End_date", techReview.getEnd_date());
-        instance.put("Price", techReview.getPrice());
+        instance.put("name", techReview.getName());
+        instance.put("start_date", techReview.getStart_date());
+        instance.put("end_date", techReview.getEnd_date());
+        instance.put("price", techReview.getPrice());
 
         db.collection("techs").document(techReview.getName())
                 .set(instance)

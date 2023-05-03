@@ -20,11 +20,11 @@ public class FireBaseCarService {
     public void addCar(Car car) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
-        instance.put("Brand", car.getBrand());
-        instance.put("Model", car.getModel());
+        instance.put("brand", car.getBrand());
+        instance.put("model", car.getModel());
 //        instance.put("Year_made", car.getYear_made());
-        instance.put("Gas_per_km", car.getGas_per_km());
-        instance.put("Horse_power", car.getHorse_power());
+        instance.put("gas_per_km", car.getGas_per_km());
+        instance.put("horse_power", car.getHorse_power());
 //        instance.put("TechReview", car.getTechReview());
 //        instance.put("LiabilityInsurance", car.getLiabilityInsurance());
 
@@ -48,34 +48,53 @@ public class FireBaseCarService {
                 });
     }
 
-    public void updateCar(Car car){
+//    public void updateCar(Car car, String model){
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        Map<String, Object> instance = new HashMap<>();
+//        instance.put("brand", car.getBrand());
+//        instance.put("model", car.getModel());
+////        instance.put("Year_made", car.getYear_made());
+//        instance.put("gas_per_km", car.getGas_per_km());
+//        instance.put("horse_power", car.getHorse_power());
+//
+//        FirebaseAuth fAuth;
+//        fAuth = FirebaseAuth.getInstance();
+//
+//        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model)
+//                .update(instance)
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        Log.d(TAG, "DocumentSnapshot successfully written!");
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.w(TAG, "Error writing document", e);
+//                    }
+//                });
+//    }
+
+    public void updateCar(Car car,String model){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
-        instance.put("Brand", car.getBrand());
-        instance.put("Model", car.getModel());
+        instance.put("brand", car.getBrand());
+        instance.put("model", car.getModel());
 //        instance.put("Year_made", car.getYear_made());
-        instance.put("Gas_per_km", car.getGas_per_km());
-        instance.put("Horse_power", car.getHorse_power());
-//        instance.put("TechReview", car.getTechReview());
-//        instance.put("LiabilityInsurance", car.getLiabilityInsurance());
+        instance.put("gas_per_km", car.getGas_per_km());
+        instance.put("horse_power", car.getHorse_power());
 
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
+        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model)
+                .update(
+                        "brand", car.getBrand(),
+                        "model", car.getModel(),
+                        "gas_per_km", car.getGas_per_km(),
+                        "horse_power", car.getHorse_power()
+                );
 
-        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(car.getModel())
-                .set(instance)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot successfully written!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error writing document", e);
-                    }
-                });
     }
 
     public void deleteCar(){
@@ -84,6 +103,27 @@ public class FireBaseCarService {
         fAuth = FirebaseAuth.getInstance();
 
         db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document()
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error deleting document", e);
+                    }
+                });
+    }
+
+    public void deleteCar(String moodel){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+
+        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(moodel)
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
