@@ -227,6 +227,4 @@
             android:visibility="visible" />
 
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

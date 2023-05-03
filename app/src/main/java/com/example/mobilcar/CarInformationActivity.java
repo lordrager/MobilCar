@@ -4,6 +4,8 @@ import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -13,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.mobilcar.Models.Classes.Car;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.example.mobilcar.Models.Classes.LiabilityInsurance;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -28,11 +33,13 @@ public class CarInformationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_car_information);
 
         Intent getModel = getIntent();
-        String modelStirng;
-        modelStirng = getModel.getStringExtra("Car_Model");
+        String modelString;
+        modelString = getModel.getStringExtra("Car_Model");
 
-//        MaterialButton addtechbtn = (MaterialButton) findViewById(R.id.add_Techbtn);
-//        MaterialButton addLiablitybtn = (MaterialButton) findViewById(R.id.add_Liablitybtn);
+        Button savebtn = (Button) findViewById(R.id.save);
+        Button deletebtn = (Button) findViewById(R.id.delete);
+        Button addtechbtn = (Button) findViewById(R.id.liabtn);
+        Button addLiablitybtn = (Button) findViewById(R.id.techbtn);
 
         TextView brand = (TextView) findViewById(R.id.brandCar);
         TextView model = (TextView) findViewById(R.id.modelCar);
@@ -45,7 +52,7 @@ public class CarInformationActivity extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-        DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(modelStirng);
+        DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(modelString);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -69,21 +76,21 @@ public class CarInformationActivity extends AppCompatActivity {
         });
 
 
-//        addtechbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(CarInformationActivity.this, TechReviewActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        addLiablitybtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                Intent intent = new Intent(CarInformationActivity.this, TechReviewActivity.class);
-////                startActivity(intent);
-//            }
-//        });
+        addtechbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CarInformationActivity.this, TechReviewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        addLiablitybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CarInformationActivity.this, LiabilityInsuranceActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 

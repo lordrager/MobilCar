@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1"
-    tools:context=".AddLiabilityInsuranceActivity">
+    tools:context=".LiabilityInsuranceActivity">
 
     <TextView
         android:id="@+id/add_Liablity"
@@ -80,7 +80,7 @@
         android:inputType="number" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/confirmDocbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

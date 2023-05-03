@@ -188,6 +188,41 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <Button
+                android:id="@+id/save"
+                android:layout_width="111dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:layout_height="wrap_content"
+                android:text="@string/save" />
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_marginTop="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:text="@string/delete" />
+
+            <Button
+                android:id="@+id/liabtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/liabtn" />
+
+            <Button
+                android:id="@+id/techbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="90dp"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:text="@string/techbtn" />
         </FrameLayout>
 
     </LinearLayout>

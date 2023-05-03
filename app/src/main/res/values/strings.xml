@@ -67,6 +67,8 @@
     <string name="carStats">Car Statistics</string>
     <string name="Settings">Settings</string>
     <string name="save">Save</string>
+    <string name="liabtn">Liab</string>
+    <string name="techbtn">Tech</string>
 
     <string name="logout">Logout</string>
 </resources>

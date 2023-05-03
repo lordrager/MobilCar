@@ -45,6 +45,8 @@
     <string name="carStats">Статистика на кола</string>
     <string name="Settings">Настройки</string>
     <string name="save">Запази</string>
+    <string name="liabtn">Гражд.</string>
+    <string name="techbtn">Техн.</string>
 
     <string name="logout">Изход</string>
 

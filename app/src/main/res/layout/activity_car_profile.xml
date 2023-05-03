@@ -32,8 +32,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="@color/colorSubTitle"
-            tools:listitem="@layout/car_list_layout"/>
+            tools:listitem="@layout/car_list_layout" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/addCarsbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomNavigationView"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/addCarsbtn" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -45,14 +55,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-    <Button
-        android:id="@+id/addCarsbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/bottomNavigationView"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="25dp"
-        android:text="@string/addCarsbtn" />
 
 </RelativeLayout>
