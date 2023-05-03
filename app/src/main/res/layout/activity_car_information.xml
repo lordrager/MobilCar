@@ -68,7 +68,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/brandCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/modelCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/gasCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/horseCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

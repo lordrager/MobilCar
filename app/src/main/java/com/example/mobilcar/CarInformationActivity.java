@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,10 +42,10 @@ public class CarInformationActivity extends AppCompatActivity {
         Button addtechbtn = (Button) findViewById(R.id.liabtn);
         Button addLiablitybtn = (Button) findViewById(R.id.techbtn);
 
-        TextView brand = (TextView) findViewById(R.id.brandCar);
-        TextView model = (TextView) findViewById(R.id.modelCar);
-        TextView gas_per_km = (TextView) findViewById(R.id.gasCar);
-        TextView horse_power = (TextView) findViewById(R.id.horseCar);
+        EditText brand = (EditText) findViewById(R.id.brandCar);
+        EditText model = (EditText) findViewById(R.id.modelCar);
+        EditText gas_per_km = (EditText) findViewById(R.id.gasCar);
+        EditText horse_power = (EditText) findViewById(R.id.horseCar);
 
 
         FirebaseAuth fAuth;
