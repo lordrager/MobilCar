@@ -19,14 +19,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Objects;
 
 public class PersonInfoMainPage extends AppCompatActivity {
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_person_info_main_page);
-
-
+    protected void onStart()
+    {
+        super.onStart();
         TextView name = (TextView) findViewById(R.id.nameLogged);
         TextView city = (TextView) findViewById(R.id.cityOfLogged);
         TextView email = (TextView) findViewById(R.id.emailUser);
@@ -46,6 +42,12 @@ public class PersonInfoMainPage extends AppCompatActivity {
                 username.setText(owner.getUsername());
             }
         });
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_person_info_main_page);
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();

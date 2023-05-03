@@ -67,27 +67,19 @@ public class FireBaseOwnerService {
         Map<String, Object> instance = new HashMap<>();
         instance.put("Name", owner.getName());
         instance.put("Username", owner.getUsername());
-        instance.put("Email", owner.getUsername());
+        instance.put("Email", owner.getEmail());
         instance.put("Password", owner.getPassword());
-
 
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
-
         db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()))
-                .set(instance)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot successfully written!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error writing document", e);
-                    }
-                });
+                .update(
+                        "name", owner.getName(),
+                        "username", owner.getUsername(),
+                        "email", owner.getEmail(),
+                        "password", owner.getPassword()
+                );
+
     }
 
     public void deleteOwner(){

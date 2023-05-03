@@ -48,16 +48,9 @@ public class SettingsActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        loadLocale();
-        setContentView(R.layout.activity_settings);
-
-        MaterialButton logoutbtn = (MaterialButton) findViewById(R.id.logout);
-        MaterialButton deletebtn = (MaterialButton) findViewById(R.id.delete);
-        MaterialButton changeLang = (MaterialButton) findViewById(R.id.changeLang);
-        MaterialButton savebtn = (MaterialButton) findViewById(R.id.save);
-
+    protected void onStart()
+    {
+        super.onStart();
         TextView name = (TextView) findViewById(R.id.nameLog);
         TextView username = (TextView) findViewById(R.id.usernameLog);
         TextView email = (TextView) findViewById(R.id.emailLog);
@@ -77,6 +70,18 @@ public class SettingsActivity extends AppCompatActivity {
                 password.setText(owner.getPassword());
             }
         });
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        loadLocale();
+        setContentView(R.layout.activity_settings);
+
+        MaterialButton logoutbtn = (MaterialButton) findViewById(R.id.logout);
+        MaterialButton deletebtn = (MaterialButton) findViewById(R.id.delete);
+        MaterialButton changeLang = (MaterialButton) findViewById(R.id.changeLang);
+        MaterialButton savebtn = (MaterialButton) findViewById(R.id.save);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
@@ -117,6 +122,13 @@ public class SettingsActivity extends AppCompatActivity {
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth fAuth;
+                fAuth = FirebaseAuth.getInstance();
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                TextView name = (TextView) findViewById(R.id.nameLog);
+                TextView username = (TextView) findViewById(R.id.usernameLog);
+                TextView email = (TextView) findViewById(R.id.emailLog);
+                TextView password = (TextView) findViewById(R.id.passwordLog);
                 DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()));
                 docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -174,9 +186,9 @@ public class SettingsActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "User account deleted.");
+                                    showNotification();
                                     Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
                                     startActivity(intent);
-                                    showNotification();
                                 }
                             }
                         });
