@@ -63,6 +63,7 @@
 
     <string name="changeLang">Change Language</string>
     <string name="finishbtn">Finish</string>
+    <string name="delete">Delete</string>
 
     <string name="logout">Logout</string>
 </resources>
