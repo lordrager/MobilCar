@@ -22,11 +22,11 @@ public class FireBaseCarService {
         Map<String, Object> instance = new HashMap<>();
         instance.put("Brand", car.getBrand());
         instance.put("Model", car.getModel());
-        instance.put("Year_made", car.getYear_made());
+//        instance.put("Year_made", car.getYear_made());
         instance.put("Gas_per_km", car.getGas_per_km());
         instance.put("Horse_power", car.getHorse_power());
-        instance.put("TechReview", car.getTechReview());
-        instance.put("LiabilityInsurance", car.getLiabilityInsurance());
+//        instance.put("TechReview", car.getTechReview());
+//        instance.put("LiabilityInsurance", car.getLiabilityInsurance());
 
 
         FirebaseAuth fAuth;
@@ -53,11 +53,11 @@ public class FireBaseCarService {
         Map<String, Object> instance = new HashMap<>();
         instance.put("Brand", car.getBrand());
         instance.put("Model", car.getModel());
-        instance.put("Year_made", car.getYear_made());
+//        instance.put("Year_made", car.getYear_made());
         instance.put("Gas_per_km", car.getGas_per_km());
         instance.put("Horse_power", car.getHorse_power());
-        instance.put("TechReview", car.getTechReview());
-        instance.put("LiabilityInsurance", car.getLiabilityInsurance());
+//        instance.put("TechReview", car.getTechReview());
+//        instance.put("LiabilityInsurance", car.getLiabilityInsurance());
 
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();

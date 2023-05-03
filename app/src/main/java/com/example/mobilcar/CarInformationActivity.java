@@ -1,13 +1,18 @@
 package com.example.mobilcar;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobilcar.Models.Classes.Car;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -35,24 +40,34 @@ public class CarInformationActivity extends AppCompatActivity {
         TextView horse_power = (TextView) findViewById(R.id.horseCar);
 
 
-          FirebaseAuth fAuth;
+        FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()))
-                .collection("cars").document(modelStirng);
 
 
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(modelStirng);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Car car = documentSnapshot.toObject(Car.class);
-                assert car != null;
-                brand.setText(car.getBrand());
-                model.setText(car.getModel());
-                gas_per_km.setText(car.getGas_per_km());
-                horse_power.setText(car.getHorse_power());
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                        Car car = document.toObject(Car.class);
+                        brand.setText(car.getBrand());
+                        model.setText(car.getModel());
+                        gas_per_km.setText(car.getGas_per_km());
+                        horse_power.setText(car.getHorse_power());
+
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
             }
         });
+
 
 //        addtechbtn.setOnClickListener(new View.OnClickListener() {
 //            @Override

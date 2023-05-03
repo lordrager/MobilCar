@@ -92,7 +92,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/modelCar"
+                android:id="@+id/model"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/model"
@@ -101,7 +101,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/emailUser"
+                android:id="@+id/modelCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorSubTitle"
@@ -124,7 +124,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/gasCar"
+                android:id="@+id/gas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/gasExpense"
@@ -133,7 +133,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/locationUserLogged"
+                android:id="@+id/gasCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
