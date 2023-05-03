@@ -13,6 +13,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Objects;
+
 public class CarInformationActivity extends AppCompatActivity {
 
     @Override
@@ -33,15 +35,22 @@ public class CarInformationActivity extends AppCompatActivity {
         TextView horse_power = (TextView) findViewById(R.id.horseCar);
 
 
-        FirebaseAuth fAuth;
+          FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("owners").document(fAuth.getUid()).collection("cars").document(modelStirng);
+        DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid()))
+                .collection("cars").document(modelStirng);
+
+
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Car car = documentSnapshot.toObject(Car.class);
-//                brand.setText();
+                assert car != null;
+                brand.setText(car.getBrand());
+                model.setText(car.getModel());
+                gas_per_km.setText(car.getGas_per_km());
+                horse_power.setText(car.getHorse_power());
             }
         });
 

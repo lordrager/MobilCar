@@ -7,47 +7,6 @@
     android:background="@color/backgroundSettings"
     tools:context=".SettingsActivity">
 
-
-    <com.google.android.material.button.MaterialButton
-    android:id="@+id/logout"
-    android:layout_width="180dp"
-    android:layout_height="65dp"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
-    android:layout_marginTop="20dp"
-    android:layout_marginBottom="20dp"
-    android:backgroundTint="@android:color/holo_blue_dark"
-    android:enabled="true"
-    android:text="@string/logout"
-    android:textStyle="bold" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/delete"
-        android:layout_width="180dp"
-        android:layout_height="65dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/logout"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:enabled="true"
-        android:text="Delete"
-        android:textStyle="bold" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/changeLang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/logout"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="@android:color/holo_red_dark"
-        android:text="@string/changeLang"
-        android:textStyle="bold" />
-
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
@@ -57,4 +16,160 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
+
+    <TextView
+        android:id="@+id/Settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center"
+        android:text="@string/Settings"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/changeLang"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:text="@string/changeLang"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/usernameLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/changeLang"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:text="@string/usernameLog"
+        android:padding="20dp"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/nameLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameLog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:singleLine="true"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/baseline_drive_file_rename_outline_40"
+        android:drawablePadding="20dp"
+        android:text="@string/namePerson"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/emailLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameLog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:singleLine="true"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/baseline_mail_24"
+        android:drawablePadding="20dp"
+        android:text="@string/emailLog"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/hidePass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailLog"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
+        app:passwordToggleEnabled="true">
+
+    <EditText
+        android:id="@+id/passwordLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailLog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:singleLine="true"
+        android:background="#30ffffff"
+        android:drawableStart="@drawable/baseline_lock_24"
+        android:drawablePadding="20dp"
+        android:text="@string/passwordLog"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save"
+        android:layout_width="180dp"
+        android:layout_height="65dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/hidePass"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:enabled="true"
+        android:text="@string/save"
+        android:textStyle="bold" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logout"
+        android:layout_width="180dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/save"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:enabled="true"
+        android:text="@string/logout"
+        android:textStyle="bold" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/delete"
+        android:layout_width="180dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/save"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:enabled="true"
+        android:text="@string/delete"
+        android:textStyle="bold" />
+
+
 </RelativeLayout>

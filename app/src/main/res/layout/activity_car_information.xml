@@ -27,11 +27,11 @@
                 android:src="@drawable/carinfo" />
 
             <TextView
-                android:id="@+id/nameLogged"
+                android:id="@+id/carStats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorTitle"
-                android:text="Car Settings"
+                android:text="@string/carStats"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -63,7 +63,7 @@
                 android:id="@+id/brand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brand"
+                android:text="@string/brand"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -95,7 +95,7 @@
                 android:id="@+id/modelCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Model"
+                android:text="@string/model"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -127,7 +127,7 @@
                 android:id="@+id/gasCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gas per mile"
+                android:text="@string/gasExpense"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -160,7 +160,7 @@
                 android:id="@+id/horse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Horse Power"
+                android:text="@string/horsePower"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />

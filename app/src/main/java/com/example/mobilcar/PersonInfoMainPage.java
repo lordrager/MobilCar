@@ -40,6 +40,7 @@ public class PersonInfoMainPage extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Owner owner = documentSnapshot.toObject(Owner.class);
+                assert owner != null;
                 name.setText(owner.getName());
                 email.setText(owner.getEmail());
                 username.setText(owner.getUsername());

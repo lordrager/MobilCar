@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +19,9 @@ import java.util.ArrayList;
 
 public class CarListAdapter extends ArrayAdapter<Car> {
     private Context c;
+
     public CarListAdapter(@NonNull Context context, ArrayList<Car> dataModalArrayList) {
-        super(context, 0, dataModalArrayList);
+        super(context, R.layout.car_list_layout, dataModalArrayList);
         this.c = context;
     }
 
@@ -31,22 +33,20 @@ public class CarListAdapter extends ArrayAdapter<Car> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.car_list_layout, parent, false);
         }
         Car dataModal = getItem(position);
-        TextView nameTV = listItemView.findViewById(R.id.idTVtext);
-        //ImageView courseIV = listItemView.findViewById(R.id.idIVimage);
+        TextView nameTV = listItemView.findViewById(R.id.firstCarList);
+        ImageView courseIV = listItemView.findViewById(R.id.idIVimage);
 
-        nameTV.setText(dataModal.getModel());
+        nameTV.setText(dataModal.getBrand());
         listItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(c, "Item clicked is : " + dataModal.getModel(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(c, CarInformationActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Car_Model",dataModal.getModel());
+                intent.putExtra("Car_Model", dataModal.getModel());
                 c.startActivity(intent);
             }
         });
         return listItemView;
     }
-
-
 }

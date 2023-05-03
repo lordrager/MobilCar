@@ -10,8 +10,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
 
     <application
         android:allowBackup="true"
@@ -60,7 +58,7 @@
             android:exported="false" />
         <activity
             android:name=".GoogleMapsActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".TechReviewActivity"
             android:exported="false" />

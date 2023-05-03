@@ -28,6 +28,7 @@ public class RegisterCarActivity extends AppCompatActivity {
 
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
         Button toDocsbtn = (Button) findViewById(R.id.toDocsbtn);
+        registerbtn.setVisibility(View.VISIBLE);
 
 
         markLog.addTextChangedListener(new TextWatcher() {
@@ -43,6 +44,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
                 if (mark.length() > 3 && model.length() > 4 && gas.length() > 0 && horse.length() > 0) {
+                    registerbtn.setVisibility(View.VISIBLE);
                     registerbtn.setEnabled(true);
                 } else registerbtn.setEnabled(false);
             }
@@ -66,6 +68,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
                 if (mark.length() > 3 && model.length() > 4 && gas.length() > 0 && horse.length() > 0) {
+                    registerbtn.setVisibility(View.VISIBLE);
                     registerbtn.setEnabled(true);
                 } else registerbtn.setEnabled(false);
             }
@@ -89,6 +92,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
                 if (mark.length() > 3 && model.length() > 4 && gas.length() > 0 && horse.length() > 0) {
+                    registerbtn.setVisibility(View.VISIBLE);
                     registerbtn.setEnabled(true);
                 } else registerbtn.setEnabled(false);
             }
@@ -112,6 +116,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
                 if (mark.length() > 3 && model.length() > 4 && gas.length() > 0 && horse.length() > 0) {
+                    registerbtn.setVisibility(View.VISIBLE);
                     registerbtn.setEnabled(true);
                 } else registerbtn.setEnabled(false);
             }
@@ -137,7 +142,7 @@ public class RegisterCarActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(RegisterCarActivity.this, PersonInfoMainPage.class);
                 startActivity(intent);
-                Toast.makeText(RegisterCarActivity.this, "WELCOME NEW USER", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterCarActivity.this, "NEW CAR ADDED!", Toast.LENGTH_SHORT).show();
             }
         });
         toDocsbtn.setOnClickListener(new View.OnClickListener() {

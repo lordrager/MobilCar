@@ -42,6 +42,9 @@
     <string name="changeLang">Промени език</string>
     <string name="finishbtn">Потвърди</string>
     <string name="delete">Премахни</string>
+    <string name="carStats">Статистика на кола</string>
+    <string name="Settings">Настройки</string>
+    <string name="save">Запази</string>
 
     <string name="logout">Изход</string>
 
