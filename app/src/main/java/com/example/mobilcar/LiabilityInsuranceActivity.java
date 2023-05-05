@@ -12,9 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseTechService;
 import com.example.mobilcar.Models.Classes.LiabilityInsurance;
-import com.example.mobilcar.Models.Classes.TechReview;
-import com.google.android.material.button.MaterialButton;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -149,7 +146,7 @@ public class LiabilityInsuranceActivity extends AppCompatActivity {
                 }
                 LiabilityInsurance liabilityInsurance = new LiabilityInsurance(nameTech,start,end,priceTech);
                 FireBaseTechService fireBaseTechService = new FireBaseTechService();
-                fireBaseTechService.addTech(liabilityInsurance, modelString);
+               // fireBaseTechService.addTech(liabilityInsurance, modelString);
                 Intent intent = new Intent(LiabilityInsuranceActivity.this, CarProfileActivity.class);
                 startActivity(intent);
             }

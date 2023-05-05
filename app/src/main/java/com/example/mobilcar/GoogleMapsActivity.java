@@ -11,8 +11,11 @@ import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +23,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -67,6 +69,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
     private static final float DEFAULT_ZOOM = 15f;
 
     private EditText mSearchText;
+    private ImageView mGps;
 
 
     @Override
@@ -74,6 +77,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_googlemaps);
         mSearchText = (EditText) findViewById(R.id.input_search);
+        mGps = (ImageView) findViewById(R.id.icon_gps);
 
         getLocationPermission();
         getDeviceLocation();
@@ -96,6 +100,15 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
                 return false;
             }
         });
+
+        mGps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: clicked gps icon");
+                getDeviceLocation();
+            }
+        });
+        hideKeyboard();
     }
 
     private void geoLocate() {
@@ -163,6 +176,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
 
         MarkerOptions options = new MarkerOptions().position(latLng).title(title);
         mMap.addMarker(options);
+        hideKeyboard();
     }
 
     private void initMap() {
@@ -214,6 +228,10 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
                 initMap();
             }
         }
+    }
+
+    private void hideKeyboard() {
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
 }

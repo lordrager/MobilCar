@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,35 +9,50 @@
     tools:context=".GoogleMapsActivity">
 
     <RelativeLayout
+        android:id="@+id/relLayout1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:elevation="10dp"
         android:background="@color/white"
-        android:id="@+id/relLayout1">
-        
+        android:elevation="10dp">
+
         <ImageView
+            android:id="@+id/ic_magnify"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:id="@+id/ic_magnify"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/baseline_search_24"/>
+            android:src="@drawable/baseline_search_24" />
+
         <EditText
+            android:id="@+id/input_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@id/ic_magnify"
             android:layout_centerVertical="true"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            android:id="@+id/input_search"
+            android:layout_toRightOf="@id/ic_magnify"
             android:background="@null"
+            android:hint="Enter Address, City or Zip Code"
             android:imeOptions="actionSearch"
-            android:hint="Enter Address, City or Zip Code"/>
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/icon_gps"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="center"
+            android:src="@drawable/baseline_gps_fixed_24" />
+
 
     </RelativeLayout>
+
+
 
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -48,24 +63,5 @@
         android:layout_height="match_parent"
         tools:context=".MapsActivity" />
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/locale"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        map:cameraBearing="112.5"
-        map:cameraTargetLat="-33.796923"
-        map:cameraTargetLng="150.922433"
-        map:cameraTilt="30"
-        map:cameraZoom="13"
-        map:mapType="normal"
-        map:uiCompass="false"
-        map:uiRotateGestures="true"
-        map:uiScrollGestures="false"
-        map:uiTiltGestures="true"
-        map:uiZoomControls="false"
-        map:uiZoomGestures="true" />
 
-
-</LinearLayout>
+</RelativeLayout>

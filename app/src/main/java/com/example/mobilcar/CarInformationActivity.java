@@ -11,7 +11,6 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseCarService;
 import com.example.mobilcar.Models.Classes.Car;
 import com.google.android.gms.tasks.OnCompleteListener;
