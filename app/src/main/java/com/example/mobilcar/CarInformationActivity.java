@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseCarService;
 import com.example.mobilcar.Models.Classes.Car;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -72,45 +73,10 @@ public class CarInformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_information);
 
-
         Button savebtn = (Button) findViewById(R.id.save);
         Button deletebtn = (Button) findViewById(R.id.delete);
         Button addtechbtn = (Button) findViewById(R.id.techbtn);
         Button addLiablitybtn = (Button) findViewById(R.id.liabtn);
-
-//        EditText brand = (EditText) findViewById(R.id.brandCar);
-//        EditText model = (EditText) findViewById(R.id.modelCar);
-//        EditText gas_per_km = (EditText) findViewById(R.id.gasCar);
-//        EditText horse_power = (EditText) findViewById(R.id.horseCar);
-//
-//
-//        FirebaseAuth fAuth;
-//        fAuth = FirebaseAuth.getInstance();
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//
-//
-//        DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(modelString);
-//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-//                        Car car = document.toObject(Car.class);
-//                        brand.setText(car.getBrand());
-//                        model.setText(car.getModel());
-//                        gas_per_km.setText(car.getGas_per_km());
-//                        horse_power.setText(car.getHorse_power());
-//
-//                    } else {
-//                        Log.d(TAG, "No such document");
-//                    }
-//                } else {
-//                    Log.d(TAG, "get failed with ", task.getException());
-//                }
-//            }
-//        });
 
 
         addtechbtn.setOnClickListener(new View.OnClickListener() {

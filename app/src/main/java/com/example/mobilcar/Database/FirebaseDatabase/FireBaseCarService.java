@@ -48,34 +48,6 @@ public class FireBaseCarService {
                 });
     }
 
-//    public void updateCar(Car car, String model){
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        Map<String, Object> instance = new HashMap<>();
-//        instance.put("brand", car.getBrand());
-//        instance.put("model", car.getModel());
-////        instance.put("Year_made", car.getYear_made());
-//        instance.put("gas_per_km", car.getGas_per_km());
-//        instance.put("horse_power", car.getHorse_power());
-//
-//        FirebaseAuth fAuth;
-//        fAuth = FirebaseAuth.getInstance();
-//
-//        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model)
-//                .update(instance)
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        Log.d(TAG, "DocumentSnapshot successfully written!");
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.w(TAG, "Error writing document", e);
-//                    }
-//                });
-//    }
-
     public void updateCar(Car car,String model){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
