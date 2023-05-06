@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,16 @@ public class TechReviewActivity extends AppCompatActivity {
 
 
         MaterialButton confirmDoc = (MaterialButton) findViewById(R.id.add_techreview_btn);
+        Button notifbtn = (Button) findViewById(R.id.buttonForNotif);
+
+
+        notifbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TechReviewActivity.this, NotificationsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -136,12 +147,12 @@ public class TechReviewActivity extends AppCompatActivity {
                 Date start;
                 Date end;
                 try {
-                    start=new SimpleDateFormat("dd/mm/yyyy").parse(startDateTech);
+                    start=new SimpleDateFormat("dd/MM/yyyy").parse(startDateTech);
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }
                 try {
-                    end=new SimpleDateFormat("dd/mm/yyyy").parse(endDateTech);
+                    end=new SimpleDateFormat("dd/MM/yyyy").parse(endDateTech);
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }

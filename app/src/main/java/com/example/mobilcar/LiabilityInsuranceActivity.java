@@ -135,12 +135,12 @@ public class LiabilityInsuranceActivity extends AppCompatActivity {
                 Date start;
                 Date end;
                 try {
-                    start=new SimpleDateFormat("dd/mm/yyyy").parse(startDateTech);
+                    start=new SimpleDateFormat("dd/MM/yyyy").parse(startDateTech);
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }
                 try {
-                    end=new SimpleDateFormat("dd/mm/yyyy").parse(endDateTech);
+                    end=new SimpleDateFormat("dd/MM/yyyy").parse(endDateTech);
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }

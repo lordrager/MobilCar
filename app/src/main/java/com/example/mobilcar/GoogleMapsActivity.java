@@ -23,6 +23,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,9 +35,15 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+//import com.google.android.libraries.places.api.Places;
+//import com.google.android.libraries.places.api.model.Place;
+//import com.google.android.libraries.places.api.net.PlacesClient;
+//import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+//import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -71,6 +79,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
     private EditText mSearchText;
     private ImageView mGps;
 
+    // PlacesClient placesClient = Places.createClient(this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +88,30 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         setContentView(R.layout.activity_googlemaps);
         mSearchText = (EditText) findViewById(R.id.input_search);
         mGps = (ImageView) findViewById(R.id.icon_gps);
+
+        String apiPlaces = "AIzaSyAHqc3yk88de8jp3nJ0apb1rsmEHh2UNg0";
+    /*    if (!Places.isInitialized()) {
+            Places.initialize(getApplicationContext(), apiPlaces);
+        }
+        placesClient = Places.createClient(this);
+
+        AutocompleteSupportFragment autocompleteSupportFragment =
+                (AutocompleteSupportFragment) getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+
+        assert autocompleteSupportFragment != null;
+        autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
+
+        autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onError(@NonNull Status status) {
+                Log.i(TAG, "onError: " + status);
+            }
+
+            @Override
+            public void onPlaceSelected(@NonNull Place place) {
+                Log.i(TAG, "Place " + place.getName() + ", " + place.getId());
+            }
+        });*/
 
         getLocationPermission();
         getDeviceLocation();
@@ -211,7 +245,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         Log.d(TAG, "onRequestPermissionsResult: called.");
-        // super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         mLocationPermissionGranted = false;
 
         if (requestCode == LOCATION_REQUEST_CODE) {

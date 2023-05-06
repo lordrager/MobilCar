@@ -135,7 +135,7 @@
                 android:id="@+id/locationUserLogged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mladost, str. Vazov"
+                android:text="Sofia, Mladost"
                 android:textColor="@color/colorSubTitle"
                 android:textSize="20sp"
                 android:textStyle="normal" />
