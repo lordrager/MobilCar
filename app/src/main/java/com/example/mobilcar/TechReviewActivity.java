@@ -45,7 +45,7 @@ public class TechReviewActivity extends AppCompatActivity {
         calendar.add(Calendar.MONTH, 4); // add 1 month to the current date
         calendar.set(Calendar.DAY_OF_MONTH, 7); // set the day of the month to 15
         calendar.set(Calendar.HOUR_OF_DAY, 0); // set the hour to 12 PM
-        calendar.set(Calendar.MINUTE, 20); // set the minute to 0
+        calendar.set(Calendar.MINUTE, 31); // set the minute to 0
         calendar.set(Calendar.SECOND, 0);
 
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -66,13 +66,6 @@ public class TechReviewActivity extends AppCompatActivity {
         Button notifbtn = (Button) findViewById(R.id.buttonForNotif);
 
 
-        notifbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TechReviewActivity.this, NotificationsActivity.class);
-                startActivity(intent);
-            }
-        });
 
         name.addTextChangedListener(new TextWatcher() {
             @Override

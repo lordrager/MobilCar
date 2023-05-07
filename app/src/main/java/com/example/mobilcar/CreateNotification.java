@@ -18,8 +18,6 @@ import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.mobilcar.Database.DatabaseClass;
-import com.example.mobilcar.Database.EntityClass;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -35,7 +33,6 @@ public class CreateNotification extends AppCompatActivity implements View.OnClic
     ImageView btn_record;
     EditText edittext_message;
     String timeToNotify;
-    DatabaseClass databaseClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +60,11 @@ public class CreateNotification extends AppCompatActivity implements View.OnClic
         } else if (view == btn_date) {
             selectDate();
         } else {
-            submit();
+           // submit();
         }
     }
 
-    private void submit() {
+   /* private void submit() {
         String text = edittext_message.getText().toString().trim();
         if (text.isEmpty()) {
             Toast.makeText(this, "Please enter or record", Toast.LENGTH_SHORT).show();
@@ -88,7 +85,7 @@ public class CreateNotification extends AppCompatActivity implements View.OnClic
                 finish();
             }
         }
-    }
+    }*/
 
     private void selectTime() {
         Calendar calendar = Calendar.getInstance();
