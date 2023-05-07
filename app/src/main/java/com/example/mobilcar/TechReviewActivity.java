@@ -66,6 +66,13 @@ public class TechReviewActivity extends AppCompatActivity {
         Button notifbtn = (Button) findViewById(R.id.buttonForNotif);
 
 
+        notifbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(TechReviewActivity.this, CreateNotification.class);
+                startActivity(intent1);
+            }
+        });
 
         name.addTextChangedListener(new TextWatcher() {
             @Override
