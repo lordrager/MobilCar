@@ -22,11 +22,11 @@ public class AlarmBroadcast extends BroadcastReceiver {
 
         //Click on Notification
 
-        Intent intent1 = new Intent(context, NotificationMessage.class);
-        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent1.putExtra("message", text);
+       // Intent intent1 = new Intent(context, NotificationMessage.class);
+      //  intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+       // intent1.putExtra("message", text);
         //Notification Builder
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent1, PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
+       // PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent1, PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "notify_001");
 
@@ -42,7 +42,7 @@ public class AlarmBroadcast extends BroadcastReceiver {
         mBuilder.setOnlyAlertOnce(true);
         mBuilder.build().flags = Notification.FLAG_NO_CLEAR | Notification.PRIORITY_HIGH;
         mBuilder.setContent(contentView);
-        mBuilder.setContentIntent(pendingIntent);
+       // mBuilder.setContentIntent(pendingIntent);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String channelId = "channel_id";

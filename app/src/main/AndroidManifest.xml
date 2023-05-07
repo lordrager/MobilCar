@@ -23,9 +23,6 @@
         android:theme="@style/Theme.MobilCar"
         tools:targetApi="31">
         <activity
-            android:name=".NotificationMessage"
-            android:exported="false" />
-        <activity
             android:name=".CreateNotification"
             android:exported="false" />
         <activity
