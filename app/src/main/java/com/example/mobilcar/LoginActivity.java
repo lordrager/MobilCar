@@ -2,6 +2,7 @@ package com.example.mobilcar;
 
 import static android.content.ContentValues.TAG;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -63,6 +65,16 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
+
+        if (ContextCompat.checkSelfPermission( this, Manifest.permission.POST_NOTIFICATIONS ) != PackageManager.PERMISSION_GRANTED )
+        {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String [] { Manifest.permission.POST_NOTIFICATIONS },
+                    TechReviewActivity.MY_PERMISSION_ACCESS_COURSE_LOCATION
+            );
+        }
+
 
 //        FirebaseUser user = fAuth.getCurrentUser();
 //

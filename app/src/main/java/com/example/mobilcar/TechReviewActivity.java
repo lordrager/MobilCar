@@ -27,7 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class TechReviewActivity extends AppCompatActivity {
-
+    public static final int MY_PERMISSION_ACCESS_COURSE_LOCATION = 1;
     private ActivityAddTechReviewBinding binding;
     private Calendar calendar;
     private AlarmManager alarmManager;
@@ -41,21 +41,6 @@ public class TechReviewActivity extends AppCompatActivity {
         CreateNotificationChannel();
 //        setContentView(R.layout.activity_add_tech_review);
 
-        calendar = Calendar.getInstance();
-        calendar.add(Calendar.MONTH, 4); // add 1 month to the current date
-        calendar.set(Calendar.DAY_OF_MONTH, 7); // set the day of the month to 15
-        calendar.set(Calendar.HOUR_OF_DAY, 0); // set the hour to 12 PM
-        calendar.set(Calendar.MINUTE, 31); // set the minute to 0
-        calendar.set(Calendar.SECOND, 0);
-
-        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(TechReviewActivity.this, CarProfileActivity.class);
-        pendingIntent = PendingIntent.getBroadcast(TechReviewActivity.this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
-
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-//        long notificationTime = calendar.getTimeInMillis();
-//        alarmManager.setExact(AlarmManager.RTC_WAKEUP, notificationTime, PendingIntent.getBroadcast(context, i, intent, PendingIntent.FLAG_UPDATE_CURRENT));
-
         TextView name = (TextView) findViewById(R.id.name);
         TextView startDate = (TextView) findViewById(R.id.editStartDate);
         TextView endDate = (TextView) findViewById(R.id.editEndDate);
@@ -66,13 +51,15 @@ public class TechReviewActivity extends AppCompatActivity {
         Button notifbtn = (Button) findViewById(R.id.buttonForNotif);
 
 
-        notifbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(TechReviewActivity.this, CreateNotification.class);
-                startActivity(intent1);
-            }
-        });
+
+//        notifbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(TechReviewActivity.this,
+//                .class);
+//                startActivity(intent);
+//            }
+//        });
 
         name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -191,21 +178,32 @@ public class TechReviewActivity extends AppCompatActivity {
                 TechReview techReview = new TechReview(nameTech,start,end,priceTech);
                 FireBaseTechService fireBaseTechService = new FireBaseTechService();
                 fireBaseTechService.addTech(techReview, modelString);
+                calendar = Calendar.getInstance();
+                calendar.add(Calendar.MONTH, 4);
+                calendar.set(Calendar.DAY_OF_MONTH, 7);
+                calendar.set(Calendar.HOUR_OF_DAY, 11);
+                calendar.set(Calendar.MINUTE, 26);
+
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                Intent Receiveintent = new Intent(TechReviewActivity.this, AlarmReceiver.class);
+                pendingIntent = PendingIntent.getBroadcast(TechReviewActivity.this, 0, Receiveintent, PendingIntent.FLAG_IMMUTABLE);
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                        AlarmManager.INTERVAL_DAY, pendingIntent);
+
                 Intent intent = new Intent(TechReviewActivity.this, CarProfileActivity.class);
                 startActivity(intent);
             }
         });
-
     }
 
     private void CreateNotificationChannel(){
-        if(Build.VERSION_CODES.O <= Build.VERSION.SDK_INT){
-            CharSequence name = "getNewDocumentname";
-            String desc = "Channel for Alarm";
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "akchannel";
+            String desc = "Channel for Alarm Manager";
             int imp = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("getNewDocument", name, imp);
+            NotificationChannel channel = new NotificationChannel("androidknowledge", name, imp);
             channel.setDescription(desc);
-
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
