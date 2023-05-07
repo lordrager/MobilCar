@@ -9,11 +9,13 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,14 +29,21 @@ import androidx.core.content.ContextCompat;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.AutocompletePrediction;
+import com.google.android.libraries.places.api.net.PlacesClient;
 //import com.google.android.libraries.places.api.Places;
 //import com.google.android.libraries.places.api.model.Place;
 //import com.google.android.libraries.places.api.net.PlacesClient;
@@ -69,6 +78,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     private GoogleMap mMap;
+    private PlaceAutocompleteFragment placeAutocompleteFragment;
+
     private Boolean mLocationPermissionGranted = false;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
@@ -78,8 +89,13 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
 
     private EditText mSearchText;
     private ImageView mGps;
+    double latitude, longitude;
+    private int proximityRadius = 10000;
 
-    // PlacesClient placesClient = Places.createClient(this);
+
+//    PlacesClient placesClient;
+//    private List<AutocompletePrediction> predictionList;
+//    private Location mLastKnownLocation;
 
 
     @Override
@@ -89,32 +105,32 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         mSearchText = (EditText) findViewById(R.id.input_search);
         mGps = (ImageView) findViewById(R.id.icon_gps);
 
+
         String apiPlaces = "AIzaSyAHqc3yk88de8jp3nJ0apb1rsmEHh2UNg0";
-    /*    if (!Places.isInitialized()) {
-            Places.initialize(getApplicationContext(), apiPlaces);
-        }
-        placesClient = Places.createClient(this);
+//        if (!Places.isInitialized()) {
+//            Places.initialize(getApplicationContext(), apiPlaces);
+//        }
+//        placesClient = Places.createClient(this);
 
-        AutocompleteSupportFragment autocompleteSupportFragment =
-                (AutocompleteSupportFragment) getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
 
-        assert autocompleteSupportFragment != null;
-        autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
+        // placeAutocompleteFragment = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.place_autocomplete);
 
-        autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onError(@NonNull Status status) {
-                Log.i(TAG, "onError: " + status);
-            }
 
-            @Override
-            public void onPlaceSelected(@NonNull Place place) {
-                Log.i(TAG, "Place " + place.getName() + ", " + place.getId());
-            }
-        });*/
+//        placeAutocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+//            @Override
+//            public void onPlaceSelected(Place place) {
+//                Log.d("Maps", "onPlaceSelected: " + place.getName() + place.getId());
+//            }
+//
+//            @Override
+//            public void onError(Status status) {
+//                Log.d(TAG, "onError: " + status);
+//            }
+//        });
 
         getLocationPermission();
         getDeviceLocation();
+        initMap();
         init();
     }
 
@@ -268,4 +284,80 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
+    public void onClick(View v) {
+        int id = v.getId();
+
+        String gasStations = "gasStations", services = "services";
+        Object transferData[] = new Object[2];
+        GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
+
+
+        if (id == R.id.ic_magnify) {
+            EditText addressField = (EditText) findViewById(R.id.input_search);
+            String address = addressField.getText().toString();
+
+            List<Address> addressList = null;
+            MarkerOptions userMarkerOptions = new MarkerOptions();
+
+            if (!TextUtils.isEmpty(address)) {
+                Geocoder geocoder = new Geocoder(this);
+                try {
+                    addressList = geocoder.getFromLocationName(address, 6);
+                    if (addressList != null) {
+                        for (int i = 0; i < addressList.size(); i++) {
+
+                            Address userAddress = addressList.get(i);
+                            LatLng latLng = new LatLng(userAddress.getLatitude(), userAddress.getLongitude());
+
+                            userMarkerOptions.position(latLng);
+                            userMarkerOptions.title(address);
+                            userMarkerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
+                            mMap.addMarker(userMarkerOptions);
+                            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                            mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+                        }
+                    } else {
+                        Toast.makeText(this, "Location not found...", Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+                Toast.makeText(this, "please enter location", Toast.LENGTH_SHORT).show();
+            }
+        } else if (id == R.id.gasStations) {
+            mMap.clear();
+            String url = getUrl(latitude, longitude, gasStations);
+            transferData[0] = mMap;
+            transferData[1] = url;
+
+            getNearbyPlaces.execute(transferData);
+            Toast.makeText(this, "Searching for gas stations", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Showing gas stations", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.services) {
+            mMap.clear();
+            String url = getUrl(latitude, longitude, services);
+            transferData[0] = mMap;
+            transferData[1] = url;
+
+            getNearbyPlaces.execute(transferData);
+            Toast.makeText(this, "Searching for services", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Showing services", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private String getUrl(double latitude, double longitude, String nearbyPlace) {
+        StringBuilder googleURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googleURL.append("location=" + latitude + "," + longitude);
+        googleURL.append("&radius=" + proximityRadius);
+        googleURL.append("&type=" + nearbyPlace);
+        googleURL.append("&sensor=true");
+        googleURL.append("&key=" + "AIzaSyDPgu8CsDRzb-X9rhYA9v5_S-Iyx60Vntk");
+
+        Log.d(TAG, "getUrl: " + googleURL.toString());
+
+        return googleURL.toString();
+    }
 }

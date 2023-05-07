@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +48,18 @@ public class TechReviewActivity extends AppCompatActivity {
 
 
         MaterialButton confirmDoc = (MaterialButton) findViewById(R.id.add_techreview_btn);
+      //  Button notifbtn = (Button) findViewById(R.id.buttonForNotif);
+
+
+
+//        notifbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(TechReviewActivity.this,
+//                .class);
+//                startActivity(intent);
+//            }
+//        });
 
         name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -140,7 +153,7 @@ public class TechReviewActivity extends AppCompatActivity {
             }
         });
 
-        binding.addTechreviewBtn.setOnClickListener(new View.OnClickListener() {
+        confirmDoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nameTech = name.getText().toString().trim();
@@ -166,11 +179,10 @@ public class TechReviewActivity extends AppCompatActivity {
                 FireBaseTechService fireBaseTechService = new FireBaseTechService();
                 fireBaseTechService.addTech(techReview, modelString);
                 calendar = Calendar.getInstance();
-                calendar.add(Calendar.YEAR, 2023);
                 calendar.add(Calendar.MONTH, 4);
                 calendar.set(Calendar.DAY_OF_MONTH, 7);
                 calendar.set(Calendar.HOUR_OF_DAY, 15);
-                calendar.set(Calendar.MINUTE, 21);
+                calendar.set(Calendar.MINUTE, 26);
 
 
                 alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -187,7 +199,7 @@ public class TechReviewActivity extends AppCompatActivity {
 
     private void CreateNotificationChannel(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            CharSequence name = "androidknowledge";
+            CharSequence name = "akchannel";
             String desc = "Channel for Alarm Manager";
             int imp = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel("androidknowledge", name, imp);
