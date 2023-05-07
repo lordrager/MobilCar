@@ -75,14 +75,6 @@ public class LoginActivity extends AppCompatActivity {
             );
         }
 
-
-//        FirebaseUser user = fAuth.getCurrentUser();
-//
-//        if (Objects.nonNull(user) && user.isEmailVerified() && user!=null) {
-//            Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
-//            startActivity(intent);
-//        }
-
         EditText emailLog = (EditText) findViewById(R.id.emailLog);
         EditText passwordLog = (EditText) findViewById(R.id.passwordLog);
 
@@ -131,8 +123,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-        //viki and 1234
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
