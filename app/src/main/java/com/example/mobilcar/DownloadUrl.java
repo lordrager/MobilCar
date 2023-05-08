@@ -37,6 +37,7 @@ public class DownloadUrl {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            assert inputStream != null;
             inputStream.close();
             httpURLConnection.disconnect();
         }

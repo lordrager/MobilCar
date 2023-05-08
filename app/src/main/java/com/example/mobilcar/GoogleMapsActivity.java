@@ -15,8 +15,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,12 +26,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
-import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -41,9 +38,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.AutocompletePrediction;
-import com.google.android.libraries.places.api.net.PlacesClient;
 //import com.google.android.libraries.places.api.Places;
 //import com.google.android.libraries.places.api.model.Place;
 //import com.google.android.libraries.places.api.net.PlacesClient;
@@ -52,7 +46,6 @@ import com.google.android.libraries.places.api.net.PlacesClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -90,7 +83,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
     private EditText mSearchText;
     private ImageView mGps;
     double latitude, longitude;
-    private int proximityRadius = 10000;
+    private int proximityRadius = 1000;
+    private ImageButton gas, services;
 
 
 //    PlacesClient placesClient;
@@ -104,6 +98,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         setContentView(R.layout.activity_googlemaps);
         mSearchText = (EditText) findViewById(R.id.input_search);
         mGps = (ImageView) findViewById(R.id.icon_gps);
+        gas = (ImageButton) findViewById(R.id.gasStations);
+        services = (ImageButton) findViewById(R.id.services);
 
 
         String apiPlaces = "AIzaSyAHqc3yk88de8jp3nJ0apb1rsmEHh2UNg0";
@@ -288,7 +284,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         int id = v.getId();
 
         String gasStations = "gasStations", services = "services";
-        Object transferData[] = new Object[2];
+        Object[] transferData = new Object[2];
         GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
 
 
@@ -296,7 +292,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
             EditText addressField = (EditText) findViewById(R.id.input_search);
             String address = addressField.getText().toString();
 
-            List<Address> addressList = null;
+            List<Address> addressList = new ArrayList<>();
             MarkerOptions userMarkerOptions = new MarkerOptions();
 
             if (!TextUtils.isEmpty(address)) {
@@ -329,7 +325,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
             }
         } else if (id == R.id.gasStations) {
             mMap.clear();
-            String url = getUrl(latitude, longitude, gasStations);
+            String url = getUrl(gasStations);
             transferData[0] = mMap;
             transferData[1] = url;
 
@@ -337,8 +333,9 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
             Toast.makeText(this, "Searching for gas stations", Toast.LENGTH_SHORT).show();
             Toast.makeText(this, "Showing gas stations", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.services) {
+
             mMap.clear();
-            String url = getUrl(latitude, longitude, services);
+            String url = getUrl(services);
             transferData[0] = mMap;
             transferData[1] = url;
 
@@ -348,9 +345,9 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-    private String getUrl(double latitude, double longitude, String nearbyPlace) {
+    private String getUrl(String nearbyPlace) {
         StringBuilder googleURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-        googleURL.append("location=" + latitude + "," + longitude);
+        googleURL.append("location=" + 42.654601 + "," + 23.376340);
         googleURL.append("&radius=" + proximityRadius);
         googleURL.append("&type=" + nearbyPlace);
         googleURL.append("&sensor=true");

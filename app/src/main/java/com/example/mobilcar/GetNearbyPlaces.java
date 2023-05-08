@@ -9,8 +9,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class GetNearbyPlaces extends AsyncTask<Object, String, String> {
 
@@ -35,7 +37,7 @@ public class GetNearbyPlaces extends AsyncTask<Object, String, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        List<HashMap<String, String>> nearbyPlacesList =   null;
+        List<HashMap<String, String>> nearbyPlacesList = new ArrayList<>();
         DataParser dataParser = new DataParser();
         nearbyPlacesList = dataParser.parse(s);
 
@@ -50,8 +52,8 @@ public class GetNearbyPlaces extends AsyncTask<Object, String, String> {
             HashMap<String, String> googleNearbyPlace = nearbyPlacesList.get(i);
             String nameofPlace = googleNearbyPlace.get("place_name");
             String vicinity = googleNearbyPlace.get("vicinity");
-            double lat = Double.parseDouble(googleNearbyPlace.get("lat"));
-            double lng = Double.parseDouble(googleNearbyPlace.get("lng"));
+            double lat = Double.parseDouble(Objects.requireNonNull(googleNearbyPlace.get("lat")));
+            double lng = Double.parseDouble(Objects.requireNonNull(googleNearbyPlace.get("lng")));
 
             LatLng latLng = new LatLng(lat, lng);
             markerOptions.position(latLng);
