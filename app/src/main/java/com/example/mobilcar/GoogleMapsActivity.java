@@ -38,6 +38,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.libraries.places.api.model.Place;
 //import com.google.android.libraries.places.api.Places;
 //import com.google.android.libraries.places.api.model.Place;
 //import com.google.android.libraries.places.api.net.PlacesClient;
@@ -325,7 +326,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
             }
         } else if (id == R.id.gasStations) {
             mMap.clear();
-            String url = getUrl(gasStations);
+            String url = getUrl(Place.Type.GAS_STATION);
             transferData[0] = mMap;
             transferData[1] = url;
 
@@ -335,7 +336,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         } else if (id == R.id.services) {
 
             mMap.clear();
-            String url = getUrl(services);
+            String url = getUrl(Place.Type.CAR_REPAIR);
             transferData[0] = mMap;
             transferData[1] = url;
 
@@ -345,7 +346,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-    private String getUrl(String nearbyPlace) {
+    private String getUrl(Place.Type nearbyPlace) {
         StringBuilder googleURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         googleURL.append("location=" + 42.654601 + "," + 23.376340);
         googleURL.append("&radius=" + proximityRadius);

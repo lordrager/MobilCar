@@ -41,7 +41,7 @@ public class DataParser {
     }
 
     private List<HashMap<String, String>> getAllNearbyPlaces(JSONArray jsonArray) {
-        int counter = jsonArray.length();
+        int counter = 6;
 
         List<HashMap<String, String>> nearbyPlacesList = new ArrayList<>();
 
