@@ -7,12 +7,14 @@ public abstract class CarDocuments {
     private Date start_date;
     private Date end_date;
     private String price;
+
     public CarDocuments(String name, Date start_date, Date end_date, String price) {
         this.name = name;
         this.start_date = start_date;
         this.end_date = end_date;
         this.price = price;
     }
+
     public Date getStart_date() {
         return start_date;
     }

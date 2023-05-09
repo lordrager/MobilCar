@@ -49,7 +49,7 @@ public class FireBaseOwnerService {
                 });
     }
 
-    public void getOwner(){
+    public void getOwner() {
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -62,7 +62,7 @@ public class FireBaseOwnerService {
         });
     }
 
-    public void updateOwner(Owner owner){
+    public void updateOwner(Owner owner) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
         instance.put("Name", owner.getName());
@@ -82,7 +82,7 @@ public class FireBaseOwnerService {
 
     }
 
-    public void deleteOwner(){
+    public void deleteOwner() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();

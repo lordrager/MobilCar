@@ -40,7 +40,7 @@ public class FireBaseInsuranceService {
                 });
     }
 
-    public void updateInsurance(LiabilityInsurance insurance){
+    public void updateInsurance(LiabilityInsurance insurance) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
         instance.put("Name", insurance.getName());
@@ -64,7 +64,7 @@ public class FireBaseInsuranceService {
                 });
     }
 
-    public void deleteInsurance(String name){
+    public void deleteInsurance(String name) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("insurances").document(name)
                 .delete()

@@ -20,33 +20,33 @@ public class FireBaseTechService {
 
     public void addTech(TechReview techReview, String model) {
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    Map<String, Object> instance = new HashMap<>();
-    instance.put("Name", techReview.getName());
-    instance.put("Start_date", techReview.getStart_date());
-    instance.put("End_date", techReview.getEnd_date());
-    instance.put("Price", techReview.getPrice());
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Map<String, Object> instance = new HashMap<>();
+        instance.put("Name", techReview.getName());
+        instance.put("Start_date", techReview.getStart_date());
+        instance.put("End_date", techReview.getEnd_date());
+        instance.put("Price", techReview.getPrice());
 
-    FirebaseAuth fAuth;
-    fAuth = FirebaseAuth.getInstance();
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
 
-    db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model).collection("tech").document()
-            .set(techReview)
-            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    Log.d(TAG, "DocumentSnapshot successfully written!");
-                }
-            })
-            .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.w(TAG, "Error writing document", e);
-                }
-            });
-}
+        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model).collection("tech").document()
+                .set(techReview)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+    }
 
-    public void updateTech(TechReview techReview){
+    public void updateTech(TechReview techReview) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
         instance.put("name", techReview.getName());
@@ -70,7 +70,7 @@ public class FireBaseTechService {
                 });
     }
 
-    public void deleteTech(String name){
+    public void deleteTech(String name) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("techs").document(name)
                 .delete()

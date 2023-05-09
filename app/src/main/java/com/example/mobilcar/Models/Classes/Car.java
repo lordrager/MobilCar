@@ -27,7 +27,7 @@ public class Car {
         this.horse_power = horse_power;
     }
 
-    public Car(){
+    public Car() {
         this.brand = "none";
         this.model = "none";
         this.gas_per_km = "none";

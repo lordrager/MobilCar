@@ -48,7 +48,7 @@ public class FireBaseCarService {
                 });
     }
 
-    public void updateCar(Car car,String model){
+    public void updateCar(Car car, String model) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
         instance.put("brand", car.getBrand());
@@ -69,7 +69,7 @@ public class FireBaseCarService {
 
     }
 
-    public void deleteCar(){
+    public void deleteCar() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
@@ -90,7 +90,7 @@ public class FireBaseCarService {
                 });
     }
 
-    public void deleteCar(String moodel){
+    public void deleteCar(String moodel) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
