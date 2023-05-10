@@ -38,13 +38,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.libraries.places.api.model.Place;
-//import com.google.android.libraries.places.api.Places;
-//import com.google.android.libraries.places.api.model.Place;
-//import com.google.android.libraries.places.api.net.PlacesClient;
-//import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
-//import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -83,14 +76,8 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
 
     private EditText mSearchText;
     private ImageView mGps;
-    double latitude, longitude;
     private int proximityRadius = 1000;
-    private ImageButton gas, services;
-
-
-//    PlacesClient placesClient;
-//    private List<AutocompletePrediction> predictionList;
-//    private Location mLastKnownLocation;
+    private ImageButton gas, parking;
 
 
     @Override
@@ -100,30 +87,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         mSearchText = (EditText) findViewById(R.id.input_search);
         mGps = (ImageView) findViewById(R.id.icon_gps);
         gas = (ImageButton) findViewById(R.id.gasStations);
-        services = (ImageButton) findViewById(R.id.services);
-
-
-        String apiPlaces = "AIzaSyAHqc3yk88de8jp3nJ0apb1rsmEHh2UNg0";
-//        if (!Places.isInitialized()) {
-//            Places.initialize(getApplicationContext(), apiPlaces);
-//        }
-//        placesClient = Places.createClient(this);
-
-
-        // placeAutocompleteFragment = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.place_autocomplete);
-
-
-//        placeAutocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-//            @Override
-//            public void onPlaceSelected(Place place) {
-//                Log.d("Maps", "onPlaceSelected: " + place.getName() + place.getId());
-//            }
-//
-//            @Override
-//            public void onError(Status status) {
-//                Log.d(TAG, "onError: " + status);
-//            }
-//        });
+        parking = (ImageButton) findViewById(R.id.parking);
 
         getLocationPermission();
         getDeviceLocation();
@@ -324,6 +288,16 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
                 Toast.makeText(this, "please enter location", Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.gasStations) {
+            String gas_station = "gas_station";
+            mMap.clear();
+            String url = getUrl(gas_station);
+            transferData[0] = mMap;
+            transferData[1] = url;
+
+            getNearbyPlaces.execute(transferData);
+            Toast.makeText(this, "Searching for gas stations", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Showing gas stations", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.parking) {
             String parking = "parking";
             mMap.clear();
             String url = getUrl(parking);
@@ -333,16 +307,6 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
             getNearbyPlaces.execute(transferData);
             Toast.makeText(this, "Searching for parking", Toast.LENGTH_SHORT).show();
             Toast.makeText(this, "Showing parking", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.services) {
-            String hospital = "hospital";
-            mMap.clear();
-            String url = getUrl(hospital);
-            transferData[0] = mMap;
-            transferData[1] = url;
-
-            getNearbyPlaces.execute(transferData);
-            Toast.makeText(this, "Searching for hospital", Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "Showing hospital", Toast.LENGTH_SHORT).show();
         }
     }
 
