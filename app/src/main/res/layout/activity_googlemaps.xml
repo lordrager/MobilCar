@@ -78,9 +78,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="10dp"
             android:onClick="onClick"
-            android:src="@drawable/baseline_local_gas_station_24"/>
+            android:src="@drawable/baseline_local_parking_24"/>
 
         <ImageButton
             android:id="@+id/services"
@@ -88,9 +88,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="60dp"
             android:onClick="onClick"
-            android:src="@drawable/baseline_settings_24"/>
+            android:src="@drawable/baseline_local_hospital_24"/>
 
 
     </RelativeLayout>

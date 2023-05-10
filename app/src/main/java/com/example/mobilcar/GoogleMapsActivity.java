@@ -284,7 +284,6 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
     public void onClick(View v) {
         int id = v.getId();
 
-        String gasStations = "gasStations", services = "services";
         Object[] transferData = new Object[2];
         GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
 
@@ -325,28 +324,29 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
                 Toast.makeText(this, "please enter location", Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.gasStations) {
+            String parking = "parking";
             mMap.clear();
-            String url = getUrl(Place.Type.GAS_STATION);
+            String url = getUrl(parking);
             transferData[0] = mMap;
             transferData[1] = url;
 
             getNearbyPlaces.execute(transferData);
-            Toast.makeText(this, "Searching for gas stations", Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "Showing gas stations", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Searching for parking", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Showing parking", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.services) {
-
+            String hospital = "hospital";
             mMap.clear();
-            String url = getUrl(Place.Type.CAR_REPAIR);
+            String url = getUrl(hospital);
             transferData[0] = mMap;
             transferData[1] = url;
 
             getNearbyPlaces.execute(transferData);
-            Toast.makeText(this, "Searching for services", Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "Showing services", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Searching for hospital", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Showing hospital", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private String getUrl(Place.Type nearbyPlace) {
+    private String getUrl(String nearbyPlace) {
         StringBuilder googleURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         googleURL.append("location=" + 42.654601 + "," + 23.376340);
         googleURL.append("&radius=" + proximityRadius);

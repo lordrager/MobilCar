@@ -48,8 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 1;
 
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
         TextView name = (TextView) findViewById(R.id.nameLog);
         TextView username = (TextView) findViewById(R.id.usernameLog);
