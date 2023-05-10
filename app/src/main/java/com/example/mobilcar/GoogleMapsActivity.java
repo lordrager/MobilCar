@@ -312,7 +312,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
 
     private String getUrl(String nearbyPlace) {
         StringBuilder googleURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-        googleURL.append("location=" + 42.654601 + "," + 23.376340);
+        googleURL.append("location=" + 42.656406 + "," + 23.355500);
         googleURL.append("&radius=" + proximityRadius);
         googleURL.append("&type=" + nearbyPlace);
         googleURL.append("&sensor=true");
