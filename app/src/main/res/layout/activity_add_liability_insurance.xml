@@ -8,7 +8,7 @@
     tools:context=".LiabilityInsuranceActivity">
 
     <TextView
-        android:id="@+id/add_Liablity"
+        android:id="@+id/add_Liability"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -16,7 +16,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:gravity="center"
-        android:text="@string/addLiability"
+        android:text="Add Liability"
         android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -25,7 +25,7 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/add_Liablity"
+        android:layout_below="@id/add_Liability"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
@@ -33,10 +33,10 @@
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/baseline_drive_file_rename_outline_40"
-        android:singleLine="true"
         android:drawablePadding="20dp"
         android:hint="@string/usernameLog"
         android:padding="20dp"
+        android:singleLine="true"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20sp"
@@ -46,47 +46,53 @@
         android:id="@+id/editStartDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/name"
-        android:singleLine="true"
+        android:layout_centerHorizontal="true"
         android:ems="10"
+        android:hint="@string/editStartDate"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:hint="@string/editStartDate"
-        android:inputType="date" />
+        android:inputType="date"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/editEndDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/editStartDate"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/editEndDate"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:singleLine="true"
-        android:inputType="date" />
+        android:inputType="date"
+        android:singleLine="true" />
 
     <EditText
-        android:id="@+id/editPrice"
+        android:id="@+id/addLiabilityPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:singleLine="true"
-        android:hint="@string/editPrice"
         android:layout_below="@id/editEndDate"
+        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="number" />
+        android:hint="@string/editPrice"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:inputType="number"
+        android:singleLine="true" />
 
-    <Button
-        android:id="@+id/confirmDocbtn"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_liability_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/addLiabilityPrice"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/editPrice"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/holo_blue_dark"
+        android:enabled="false"
         android:text="@string/confirmDocbtn" />
 
 

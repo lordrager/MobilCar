@@ -22,7 +22,7 @@ public class FireBaseCarService {
         Map<String, Object> instance = new HashMap<>();
         instance.put("brand", car.getBrand());
         instance.put("model", car.getModel());
-//        instance.put("Year_made", car.getYear_made());
+        instance.put("Year_made", car.getYear_made());
         instance.put("gas_per_km", car.getGas_per_km());
         instance.put("horse_power", car.getHorse_power());
 //        instance.put("TechReview", car.getTechReview());
@@ -53,7 +53,7 @@ public class FireBaseCarService {
         Map<String, Object> instance = new HashMap<>();
         instance.put("brand", car.getBrand());
         instance.put("model", car.getModel());
-//        instance.put("Year_made", car.getYear_made());
+        instance.put("year_made", car.getYear_made());
         instance.put("gas_per_km", car.getGas_per_km());
         instance.put("horse_power", car.getHorse_power());
 
@@ -64,7 +64,8 @@ public class FireBaseCarService {
                         "brand", car.getBrand(),
                         "model", car.getModel(),
                         "gas_per_km", car.getGas_per_km(),
-                        "horse_power", car.getHorse_power()
+                        "horse_power", car.getHorse_power(),
+                        "year_made", car.getYear_made()
                 );
 
     }

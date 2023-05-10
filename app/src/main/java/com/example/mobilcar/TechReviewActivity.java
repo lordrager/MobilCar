@@ -8,11 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,18 +49,6 @@ public class TechReviewActivity extends AppCompatActivity {
 
 
         MaterialButton confirmDoc = (MaterialButton) findViewById(R.id.add_techreview_btn);
-      //  Button notifbtn = (Button) findViewById(R.id.buttonForNotif);
-
-
-
-//        notifbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(TechReviewActivity.this,
-//                .class);
-//                startActivity(intent);
-//            }
-//        });
 
         name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -96,6 +85,7 @@ public class TechReviewActivity extends AppCompatActivity {
                 String startD = startDate.getText().toString().trim();
                 String endD = endDate.getText().toString().trim();
                 String priceD = price.getText().toString().trim();
+
                 if (name1.length() > 0 && startD.length() > 0 && endD.length() > 0 && priceD.length() > 0) {
                     confirmDoc.setEnabled(true);
                 } else confirmDoc.setEnabled(false);
@@ -119,7 +109,8 @@ public class TechReviewActivity extends AppCompatActivity {
                 String startD = startDate.getText().toString().trim();
                 String endD = endDate.getText().toString().trim();
                 String priceD = price.getText().toString().trim();
-                if (name1.length() > 0 && startD.length() > 0 && endD.length() > 0 && priceD.length() > 0) {
+
+                if (name1.length() > 0 && startD.length() > 0 && endD.length() > 0 && priceD.length() > 0)  {
                     confirmDoc.setEnabled(true);
                 } else confirmDoc.setEnabled(false);
             }
@@ -153,7 +144,7 @@ public class TechReviewActivity extends AppCompatActivity {
             }
         });
 
-        confirmDoc.setOnClickListener(new View.OnClickListener() {
+        binding.addTechreviewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nameTech = name.getText().toString().trim();
@@ -171,35 +162,49 @@ public class TechReviewActivity extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
                 try {
-                    end=new SimpleDateFormat("dd/MM/yyyy").parse(endDateTech);
+                    end = new SimpleDateFormat("dd/MM/yyyy").parse(endDateTech);
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }
-                TechReview techReview = new TechReview(nameTech,start,end,priceTech);
-                FireBaseTechService fireBaseTechService = new FireBaseTechService();
-                fireBaseTechService.addTech(techReview, modelString);
-                calendar = Calendar.getInstance();
-                calendar.add(Calendar.MONTH, 4);
-                calendar.set(Calendar.DAY_OF_MONTH, 7);
-                calendar.set(Calendar.HOUR_OF_DAY, 15);
-                calendar.set(Calendar.MINUTE, 26);
 
+                if(start.compareTo(end)<0){
+                    TechReview techReview = new TechReview(nameTech, start, end, priceTech);
+                    FireBaseTechService fireBaseTechService = new FireBaseTechService();
+                    fireBaseTechService.addTech(techReview, modelString);
+                    calendar = Calendar.getInstance();
+                    calendar.add(Calendar.YEAR, end.getYear());
+                    calendar.add(Calendar.MONTH, end.getMonth());
+                    calendar.set(Calendar.DAY_OF_MONTH, end.getDay());
+                    calendar.set(Calendar.HOUR_OF_DAY, 15);
+                    calendar.set(Calendar.MINUTE, 55);
 
-                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                Intent Receiveintent = new Intent(TechReviewActivity.this, AlarmReceiver.class);
-                pendingIntent = PendingIntent.getBroadcast(TechReviewActivity.this, 0, Receiveintent, PendingIntent.FLAG_IMMUTABLE);
-                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                        AlarmManager.INTERVAL_DAY, pendingIntent);
+                    alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                    Intent Receiveintent = new Intent(TechReviewActivity.this, AlarmReceiver.class);
+                    pendingIntent = PendingIntent.getBroadcast(TechReviewActivity.this, 0, Receiveintent, PendingIntent.FLAG_IMMUTABLE);
+                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                            AlarmManager.INTERVAL_DAY, pendingIntent);
 
-                Intent intent = new Intent(TechReviewActivity.this, CarProfileActivity.class);
-                startActivity(intent);
+                    //This code is for the University test
+                    alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                            SystemClock.elapsedRealtime() +
+                                    10 * 1000, pendingIntent);
+                    //This code works for the app
+//                alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+//                        calendar.getTimeInMillis(), pendingIntent);
+
+                    Intent intent = new Intent(TechReviewActivity.this, CarProfileActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(TechReviewActivity.this, "The start date must be lower than the end date.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
-    private void CreateNotificationChannel(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            CharSequence name = "akchannel";
+    private void CreateNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "androidknowledge";
             String desc = "Channel for Alarm Manager";
             int imp = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel("androidknowledge", name, imp);

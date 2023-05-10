@@ -20,59 +20,50 @@ public class FireBaseTechService {
 
     public void addTech(TechReview techReview, String model) {
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Map<String, Object> instance = new HashMap<>();
-        instance.put("Name", techReview.getName());
-        instance.put("Start_date", techReview.getStart_date());
-        instance.put("End_date", techReview.getEnd_date());
-        instance.put("Price", techReview.getPrice());
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    Map<String, Object> instance = new HashMap<>();
+    instance.put("Name", techReview.getName());
+    instance.put("Start_date", techReview.getStart_date());
+    instance.put("End_date", techReview.getEnd_date());
+    instance.put("Price", techReview.getPrice());
 
+    FirebaseAuth fAuth;
+    fAuth = FirebaseAuth.getInstance();
+
+    db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model).collection("tech").document(techReview.getName())
+            .set(techReview)
+            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Log.d(TAG, "DocumentSnapshot successfully written!");
+                }
+            })
+            .addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.w(TAG, "Error writing document", e);
+                }
+            });
+    }
+
+    public void updateTech(TechReview techReview, String model){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
-
         db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model).collection("tech").document()
-                .set(techReview)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot successfully written!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error writing document", e);
-                    }
-                });
+                .update(
+                        "name", techReview.getName(),
+                        "start_date", techReview.getStart_date(),
+                        "end_date", techReview.getEnd_date(),
+                        "price", techReview.getPrice()
+                );
     }
 
-    public void updateTech(TechReview techReview) {
+    public void deleteTech(String model){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Map<String, Object> instance = new HashMap<>();
-        instance.put("name", techReview.getName());
-        instance.put("start_date", techReview.getStart_date());
-        instance.put("end_date", techReview.getEnd_date());
-        instance.put("price", techReview.getPrice());
-
-        db.collection("techs").document(techReview.getName())
-                .set(instance)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot successfully written!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error writing document", e);
-                    }
-                });
-    }
-
-    public void deleteTech(String name) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("techs").document(name)
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model).collection("tech").document()
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

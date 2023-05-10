@@ -6,6 +6,8 @@ public class Car {
     private String gas_per_km;
     private String horse_power;
 
+    private String year_made;
+
 //    private TechReview techReview;
 //    private LiabilityInsurance liabilityInsurance;
 //    private String user_id;
@@ -19,12 +21,13 @@ public class Car {
 ////        this.liabilityInsurance = liabilityInsurance;
 //    }
 
-    public Car(String brand, String model, String gas_per_km, String horse_power) {
+    public Car(String brand, String model, String gas_per_km, String horse_power, String year_made) {
 
         this.brand = brand;
         this.model = model;
         this.gas_per_km = gas_per_km;
         this.horse_power = horse_power;
+        this.year_made = year_made;
     }
 
     public Car() {
@@ -32,6 +35,7 @@ public class Car {
         this.model = "none";
         this.gas_per_km = "none";
         this.horse_power = "none";
+        this.year_made = "none";
     }
 
     public String getBrand() {
@@ -66,6 +70,13 @@ public class Car {
         this.horse_power = horse_power;
     }
 
+    public String getYear_made() {
+        return year_made;
+    }
+
+    public void setYear_made(String year_made) {
+        this.year_made = year_made;
+    }
 //    public TechReview getTechReview() {
 //        return techReview;
 //    }

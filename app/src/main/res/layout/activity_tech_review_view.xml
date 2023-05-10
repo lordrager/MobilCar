@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarInformationActivity">
+    tools:context=".TechReviewViewActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,49 +27,34 @@
                 android:src="@drawable/carinfo" />
 
             <TextView
-                android:id="@+id/carStats"
+                android:id="@+id/techreview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/carStats"
+                android:text="Tech Review"
                 android:textColor="@color/colorTitle"
+                android:layout_marginBottom="30dp"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/cityOfLogged"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5px"
-                android:layout_marginBottom="50px"
-                android:textColor="@color/colorTitle"
-                android:textSize="15sp"
-                android:textStyle="normal" />
         </LinearLayout>
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120px"
             android:orientation="vertical"
-            android:paddingTop="100px" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120px"
-            android:orientation="vertical">
+            android:layout_marginTop="20dp">
 
             <TextView
-                android:id="@+id/brand"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/brand"
+                android:text="Name"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/brandCar"
+                android:id="@+id/nameTech"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorSubTitle"
@@ -84,16 +69,16 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/model"
+                android:id="@+id/startDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/model"
+                android:text="Start Date"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/modelCar"
+                android:id="@+id/startdateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorSubTitle"
@@ -117,16 +102,16 @@
 
 
             <TextView
-                android:id="@+id/gas"
+                android:id="@+id/endDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/gasExpense"
+                android:text="End Date"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/gasCar"
+                android:id="@+id/endDateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorSubTitle"
@@ -149,16 +134,16 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/horse"
+                android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/horsePower"
+                android:text="Price"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/horseCar"
+                android:id="@+id/priceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorSubTitle"
@@ -185,7 +170,7 @@
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="180dp"
+                android:layout_marginStart="160dp"
                 android:backgroundTint="@android:color/holo_green_dark"
                 android:text="@string/save" />
 
@@ -193,37 +178,11 @@
                 android:id="@+id/delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="190dp"
-                android:layout_marginTop="140dp"
+                android:layout_marginStart="165dp"
+                android:layout_marginTop="90dp"
                 android:backgroundTint="@android:color/holo_red_dark"
                 android:text="@string/delete" />
 
-            <Button
-                android:id="@+id/liabtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:layout_below="@+id/save"
-                android:layout_marginStart="290dp"
-                android:backgroundTint="@android:color/holo_orange_dark"
-                android:text="@string/liabtn" />
-
-            <Button
-                android:id="@+id/techbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:layout_marginStart="110dp"
-                android:layout_below="@+id/save"
-                android:backgroundTint="@android:color/holo_orange_dark"
-                android:text="@string/techbtn" />
-
-            <Button
-                android:id="@+id/backbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="190dp"
-                android:text="Button" />
         </FrameLayout>
 
     </LinearLayout>

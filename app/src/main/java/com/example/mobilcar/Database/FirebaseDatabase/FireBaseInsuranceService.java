@@ -9,13 +9,15 @@ import androidx.annotation.NonNull;
 import com.example.mobilcar.Models.Classes.LiabilityInsurance;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class FireBaseInsuranceService {
-    public void addInsurance(LiabilityInsurance insurance) {
+    public void addInsurance(LiabilityInsurance insurance, String model) {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> instance = new HashMap<>();
@@ -24,7 +26,10 @@ public class FireBaseInsuranceService {
         instance.put("End_date", insurance.getEnd_date());
         instance.put("Price", insurance.getPrice());
 
-        db.collection("insurances").document(insurance.getName())
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+
+        db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(model).collection("insurance").document()
                 .set(insurance)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseCarService;
 import com.example.mobilcar.Models.Classes.Car;
+import com.example.mobilcar.Services.Utils;
 import com.google.android.material.button.MaterialButton;
 
 public class RegisterCarActivity extends AppCompatActivity {
@@ -24,8 +25,10 @@ public class RegisterCarActivity extends AppCompatActivity {
         TextView modelLog = (TextView) findViewById(R.id.modelCar);
         TextView gas_expenseLog = (TextView) findViewById(R.id.gasExpenseCar);
         TextView horseLog = (TextView) findViewById(R.id.horsePowerCar);
+        TextView yearLog = (TextView) findViewById(R.id.yearMadeText);
 
         MaterialButton registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
+        MaterialButton back = (MaterialButton) findViewById(R.id.backbtn);
         registerbtn.setVisibility(View.VISIBLE);
 
 
@@ -131,16 +134,29 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String model = modelLog.getText().toString().trim();
                 String gas = gas_expenseLog.getText().toString().trim();
                 String horse = horseLog.getText().toString().trim();
+                String year = yearLog.getText().toString().trim();
+
+                if(Utils.isContainsOnlyLetters(mark) && Utils.isContainsOnlyNumbers(gas) && Utils.isContainsOnlyNumbers(horse)){
+                    Car car = new Car(mark, model, gas, horse, year);
+                    FireBaseCarService carService = new FireBaseCarService();
+                    carService.addCar(car);
 
 
-                Car car = new Car(mark, model, gas, horse);
-                FireBaseCarService carService = new FireBaseCarService();
-                carService.addCar(car);
+                    Intent intent = new Intent(RegisterCarActivity.this, PersonInfoMainPage.class);
+                    startActivity(intent);
+                    Toast.makeText(RegisterCarActivity.this, "NEW CAR ADDED!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(RegisterCarActivity.this, "Car model must have only letters and gas and horse power must be integers", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
-
-                Intent intent = new Intent(RegisterCarActivity.this, PersonInfoMainPage.class);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterCarActivity.this, CarProfileActivity.class);
                 startActivity(intent);
-                Toast.makeText(RegisterCarActivity.this, "NEW CAR ADDED!", Toast.LENGTH_SHORT).show();
             }
         });
     }

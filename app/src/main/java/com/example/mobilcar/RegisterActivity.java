@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobilcar.Database.FirebaseDatabase.FireBaseOwnerService;
 import com.example.mobilcar.Models.Classes.Owner;
+import com.example.mobilcar.Services.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -191,16 +192,20 @@ public class RegisterActivity extends AppCompatActivity {
                                     if (Objects.nonNull(user)) {
                                         user.sendEmailVerification();
                                     }
+                                    if(Utils.isStrongPassword(password)){
+                                        FireBaseOwnerService ownerService = new FireBaseOwnerService();
+                                        Owner owner = new Owner(name, username, email, password);
+                                        ownerService.addOwner(owner);
 
-                                    FireBaseOwnerService ownerService = new FireBaseOwnerService();
-                                    Owner owner = new Owner(name, username, email, password);
-                                    ownerService.addOwner(owner);
+                                        Toast.makeText(RegisterActivity.this, "Verify email.",
+                                                Toast.LENGTH_SHORT).show();
 
-                                    Toast.makeText(RegisterActivity.this, "Verify email.",
-                                            Toast.LENGTH_SHORT).show();
-
-                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                    startActivity(intent);
+                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                        startActivity(intent);
+                                    }
+                                    else{
+                                        Toast.makeText(RegisterActivity.this, "Please add strong password.", Toast.LENGTH_SHORT).show();
+                                    }
                                 } else {
                                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
                                     Toast.makeText(RegisterActivity.this, "Authentication failed.",

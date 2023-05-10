@@ -13,15 +13,15 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
-public class AlarmReceiver extends BroadcastReceiver {
+public class LiabilityInsuranceReceiver  extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Intent nextActivity = new Intent(context, PersonInfoMainPage.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, nextActivity, PendingIntent.FLAG_IMMUTABLE);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "androidknowledge")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "liability")
                 .setSmallIcon(R.drawable.baseline_car_repair_40)
-                .setContentTitle("Document expired")
+                .setContentTitle("Liability insurance expired")
                 .setContentText("It's time to buy new one")
                 .setAutoCancel(true)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
@@ -39,6 +39,6 @@ public class AlarmReceiver extends BroadcastReceiver {
             }
             return;
         }
-        notificationManagerCompat.notify(123, builder.build());
+        notificationManagerCompat.notify(101, builder.build());
     }
 }
