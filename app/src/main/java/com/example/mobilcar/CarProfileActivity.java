@@ -33,8 +33,7 @@ public class CarProfileActivity extends AppCompatActivity {
     FirebaseFirestore db;
 
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
         carsLV = findViewById(R.id.carsList);
         carsArrayList = new ArrayList<>();
@@ -84,11 +83,11 @@ public class CarProfileActivity extends AppCompatActivity {
             return true;
         });
     }
+
     private void loadDataInListview() {
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
-
 
 
         db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").get()
@@ -115,7 +114,6 @@ public class CarProfileActivity extends AppCompatActivity {
                         Toast.makeText(CarProfileActivity.this, "Fail to load data..", Toast.LENGTH_SHORT).show();
                     }
                 });
-
 
 
     }

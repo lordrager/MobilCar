@@ -29,11 +29,10 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setContentIntent(pendingIntent);
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
         if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            if (ContextCompat.checkSelfPermission( context, android.Manifest.permission.POST_NOTIFICATIONS ) != PackageManager.PERMISSION_GRANTED )
-            {
+            if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(
                         (Activity) context,
-                        new String [] { Manifest.permission.POST_NOTIFICATIONS },
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS},
                         TechReviewActivity.MY_PERMISSION_ACCESS_COURSE_LOCATION
                 );
             }

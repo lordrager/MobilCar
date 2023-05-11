@@ -136,7 +136,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                 String horse = horseLog.getText().toString().trim();
                 String year = yearLog.getText().toString().trim();
 
-                if(Utils.isContainsOnlyLetters(mark) && Utils.isContainsOnlyNumbers(gas) && Utils.isContainsOnlyNumbers(horse)){
+                if (Utils.isContainsOnlyLetters(mark) && Utils.isContainsOnlyNumbers(gas) && Utils.isContainsOnlyNumbers(horse)) {
                     Car car = new Car(mark, model, gas, horse, year);
                     FireBaseCarService carService = new FireBaseCarService();
                     carService.addCar(car);
@@ -145,8 +145,7 @@ public class RegisterCarActivity extends AppCompatActivity {
                     Intent intent = new Intent(RegisterCarActivity.this, PersonInfoMainPage.class);
                     startActivity(intent);
                     Toast.makeText(RegisterCarActivity.this, "NEW CAR ADDED!", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
                     Toast.makeText(RegisterCarActivity.this, "Car model must have only letters and gas and horse power must be integers", Toast.LENGTH_SHORT).show();
                 }
             }

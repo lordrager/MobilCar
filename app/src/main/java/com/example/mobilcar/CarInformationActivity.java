@@ -30,9 +30,9 @@ import java.util.Objects;
 
 public class CarInformationActivity extends AppCompatActivity {
     String modelString;
+
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
         Intent getModel = getIntent();
         modelString = getModel.getStringExtra("Car_Model");
@@ -102,18 +102,17 @@ public class CarInformationActivity extends AppCompatActivity {
                                         Intent getModel = getIntent();
                                         String modelString;
                                         modelString = getModel.getStringExtra("Car_Model");
-                                        intent.putExtra("Car_Model",modelString);
+                                        intent.putExtra("Car_Model", modelString);
                                         intent.putExtra("Tech", (String) d.get("name"));
                                         startActivity(intent);
                                     }
-                                }
-                                else {
+                                } else {
                                     Toast.makeText(CarInformationActivity.this, "No data found in Database", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(CarInformationActivity.this, TechReviewActivity.class);
                                     Intent getModel = getIntent();
                                     String modelString;
                                     modelString = getModel.getStringExtra("Car_Model");
-                                    intent.putExtra("Car_Model",modelString);
+                                    intent.putExtra("Car_Model", modelString);
                                     startActivity(intent);
                                 }
                             }
@@ -133,7 +132,7 @@ public class CarInformationActivity extends AppCompatActivity {
                 Intent getModel = getIntent();
                 String modelString;
                 modelString = getModel.getStringExtra("Car_Model");
-                intent.putExtra("Car_Model",modelString);
+                intent.putExtra("Car_Model", modelString);
                 startActivity(intent);
             }
         });
@@ -157,7 +156,7 @@ public class CarInformationActivity extends AppCompatActivity {
                 String modelString;
                 modelString = getModel.getStringExtra("Car_Model");
                 FireBaseCarService fireBaseCarService = new FireBaseCarService();
-                Car car = new Car(newbrand,newmodel,newgas_per_km,newhorse_power, newyear);
+                Car car = new Car(newbrand, newmodel, newgas_per_km, newhorse_power, newyear);
                 fireBaseCarService.updateCar(car, modelString);
                 Intent intent = new Intent(CarInformationActivity.this, CarProfileActivity.class);
                 startActivity(intent);

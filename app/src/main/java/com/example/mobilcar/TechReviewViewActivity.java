@@ -24,9 +24,9 @@ import java.util.Objects;
 public class TechReviewViewActivity extends AppCompatActivity {
     String modelString;
     String techname;
+
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
         Intent getModel = getIntent();
         modelString = getModel.getStringExtra("Car_Model");
@@ -42,7 +42,7 @@ public class TechReviewViewActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        DocumentReference docRef =  db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(modelString).collection("tech").document(techname);
+        DocumentReference docRef = db.collection("owners").document(Objects.requireNonNull(fAuth.getUid())).collection("cars").document(modelString).collection("tech").document(techname);
 
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -77,7 +77,7 @@ public class TechReviewViewActivity extends AppCompatActivity {
                 Date start;
                 Date end;
                 try {
-                    start=new SimpleDateFormat("dd/MM/yyyy").parse(newstartdate);
+                    start = new SimpleDateFormat("dd/MM/yyyy").parse(newstartdate);
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }

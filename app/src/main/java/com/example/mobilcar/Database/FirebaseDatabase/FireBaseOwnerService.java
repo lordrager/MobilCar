@@ -28,7 +28,6 @@ public class FireBaseOwnerService {
         instance.put("Email", owner.getUsername());
         instance.put("Password", owner.getPassword());
 
-//        instance.put("Car", owner.getCars());
 
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();

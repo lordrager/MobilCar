@@ -184,8 +184,8 @@
                 android:id="@+id/save"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="180dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@android:color/holo_green_dark"
                 android:text="@string/save" />
 
@@ -202,9 +202,9 @@
                 android:id="@+id/liabtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
                 android:layout_below="@+id/save"
                 android:layout_marginStart="290dp"
+                android:layout_marginTop="70dp"
                 android:backgroundTint="@android:color/holo_orange_dark"
                 android:text="@string/liabtn" />
 
@@ -212,9 +212,9 @@
                 android:id="@+id/techbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:layout_marginStart="110dp"
                 android:layout_below="@+id/save"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="70dp"
                 android:backgroundTint="@android:color/holo_orange_dark"
                 android:text="@string/techbtn" />
 
@@ -223,8 +223,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="190dp"
-                android:drawableEnd="@drawable/baseline_arrow_back_24"
-                android:backgroundTint="@android:color/holo_blue_dark" />
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:drawableEnd="@drawable/baseline_arrow_back_24" />
         </FrameLayout>
 
     </LinearLayout>

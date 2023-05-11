@@ -192,7 +192,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     if (Objects.nonNull(user)) {
                                         user.sendEmailVerification();
                                     }
-                                    if(Utils.isStrongPassword(password)){
+                                    if (Utils.isStrongPassword(password)) {
                                         FireBaseOwnerService ownerService = new FireBaseOwnerService();
                                         Owner owner = new Owner(name, username, email, password);
                                         ownerService.addOwner(owner);
@@ -202,8 +202,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                         startActivity(intent);
-                                    }
-                                    else{
+                                    } else {
                                         Toast.makeText(RegisterActivity.this, "Please add strong password.", Toast.LENGTH_SHORT).show();
                                     }
                                 } else {

@@ -50,10 +50,10 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/editStartDate"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         android:inputType="date"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editEndDate"
@@ -63,10 +63,10 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/editEndDate"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         android:inputType="date"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/addTechPrice"
@@ -76,10 +76,10 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/editPrice"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         android:inputType="number"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/add_techreview_btn"

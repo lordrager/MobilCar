@@ -108,7 +108,7 @@ public class LiabilityInsuranceActivity extends AppCompatActivity {
                 String endD = endDate.getText().toString().trim();
                 String priceD = price.getText().toString().trim();
 
-                if (name1.length() > 0 && startD.length() > 0 && endD.length() > 0 && priceD.length() > 0)  {
+                if (name1.length() > 0 && startD.length() > 0 && endD.length() > 0 && priceD.length() > 0) {
                     confirmDoc.setEnabled(true);
                 } else confirmDoc.setEnabled(false);
             }
@@ -155,7 +155,7 @@ public class LiabilityInsuranceActivity extends AppCompatActivity {
                 Date start;
                 Date end;
                 try {
-                    start=new SimpleDateFormat("dd/MM/yyyy").parse(startDateTech);
+                    start = new SimpleDateFormat("dd/MM/yyyy").parse(startDateTech);
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }
@@ -165,7 +165,7 @@ public class LiabilityInsuranceActivity extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
 
-                if(start.compareTo(end)<0){
+                if (start.compareTo(end) < 0) {
                     LiabilityInsurance liabilityInsurance = new LiabilityInsurance(nameTech, start, end, priceTech);
                     FireBaseInsuranceService fireBaseInsuranceService = new FireBaseInsuranceService();
                     fireBaseInsuranceService.addInsurance(liabilityInsurance, modelString);
@@ -192,8 +192,7 @@ public class LiabilityInsuranceActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(LiabilityInsuranceActivity.this, CarProfileActivity.class);
                     startActivity(intent);
-                }
-                else{
+                } else {
                     Toast.makeText(LiabilityInsuranceActivity.this, "The start date must be lower than the end date.", Toast.LENGTH_SHORT).show();
                 }
             }

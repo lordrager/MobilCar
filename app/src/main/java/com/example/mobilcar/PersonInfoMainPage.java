@@ -20,8 +20,7 @@ import java.util.Objects;
 
 public class PersonInfoMainPage extends AppCompatActivity {
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
         TextView name = (TextView) findViewById(R.id.nameLogged);
         TextView city = (TextView) findViewById(R.id.cityOfLogged);
@@ -43,6 +42,7 @@ public class PersonInfoMainPage extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

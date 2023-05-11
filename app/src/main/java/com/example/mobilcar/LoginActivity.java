@@ -43,15 +43,14 @@ public class LoginActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 1;
 
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = fAuth.getCurrentUser();
 
-        if (Objects.nonNull(user) && user.isEmailVerified() && user!=null) {
+        if (Objects.nonNull(user) && user.isEmailVerified() && user != null) {
             Intent intent = new Intent(LoginActivity.this, PersonInfoMainPage.class);
             startActivity(intent);
         }
@@ -66,11 +65,10 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseAuth fAuth;
         fAuth = FirebaseAuth.getInstance();
 
-        if (ContextCompat.checkSelfPermission( this, Manifest.permission.POST_NOTIFICATIONS ) != PackageManager.PERMISSION_GRANTED )
-        {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
                     this,
-                    new String [] { Manifest.permission.POST_NOTIFICATIONS },
+                    new String[]{Manifest.permission.POST_NOTIFICATIONS},
                     TechReviewActivity.MY_PERMISSION_ACCESS_COURSE_LOCATION
             );
         }

@@ -25,8 +25,6 @@ public class FireBaseCarService {
         instance.put("Year_made", car.getYear_made());
         instance.put("gas_per_km", car.getGas_per_km());
         instance.put("horse_power", car.getHorse_power());
-//        instance.put("TechReview", car.getTechReview());
-//        instance.put("LiabilityInsurance", car.getLiabilityInsurance());
 
 
         FirebaseAuth fAuth;

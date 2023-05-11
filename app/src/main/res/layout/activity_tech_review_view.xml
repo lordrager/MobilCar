@@ -30,19 +30,20 @@
                 android:id="@+id/techreview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
                 android:text="Tech Review"
                 android:textColor="@color/colorTitle"
-                android:layout_marginBottom="30dp"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120px"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/name"
@@ -169,8 +170,8 @@
                 android:id="@+id/save"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="160dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@android:color/holo_green_dark"
                 android:text="@string/save" />
 
